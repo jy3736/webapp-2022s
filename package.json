@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/jy3736/webapp2022s#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1",
+    "sqlite3": "^4.2.0"
   }
 }
