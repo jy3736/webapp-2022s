@@ -1,0 +1,28 @@
+{
+  "name": "webapp2022s",
+  "version": "1.0.0",
+  "description": "For Dynamic Web Development 2022 Spring",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jy3736/webapp2022s.git"
+  },
+  "keywords": [
+    "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"
+  ],
+  "author": "Young",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jy3736/webapp2022s/issues"
+  },
+  "homepage": "https://github.com/jy3736/webapp2022s#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cores": "^0.8.5",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  }
+}
