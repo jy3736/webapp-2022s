@@ -1,0 +1,9 @@
+p.male {
+  color: rgb(31, 8, 238);
+  font-weight: bold;
+}
+
+p.female {
+  color: #ee0808;
+  font-style: italic;
+}
