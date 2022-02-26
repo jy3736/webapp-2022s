@@ -3,19 +3,25 @@
 html {
   color: rgb(0, 0, 0);
   font-family: "DFKai-SB"; /*標楷體*/
-  font-size: medium;
 }
 
 p.hei {
   color: rgb(31, 13, 199);
-  font-size: 20px;
   font-family: "Microsoft JhengHei"; /*微軟正黑體*/
 }
 
-p.ming {
+h2.hei {
+  color: rgb(46, 240, 8);
+  font-family: "Microsoft JhengHei"; /*微軟正黑體*/
+}
+
+.ming {
   color: #ee0808;
-  font-size: large;
   font-family: "PMingLiU"; /*新細明體*/
+}
+
+.ming {
+  color: #ee08ee;
 }
 
 #title {
