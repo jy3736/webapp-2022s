@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <title>Week 05 - 課堂練習 04</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h2>Checkboxes</h2>
+    <p>The <strong>input type="checkbox"</strong> defines a checkbox:</p>
+
+    <form name="myform" action="process.html" method="GET">
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+      <label for="vehicle1"> I have a bike</label><br />
+      <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+      <label for="vehicle2"> I have a car</label><br />
+      <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+      <label for="vehicle3"> I have a boat</label><br /><br />
+      <input
+        type="button"
+        name="button"
+        value="Click"
+        onClick="testResults(this.form)"
+      />
+    </form>
+    <br />
+    <div>Message from Javascript:</div>
+    <p id="msg"></p>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+

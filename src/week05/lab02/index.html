@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <title>Week 05 - 課堂練習 02</title>
+    <meta charset="UTF-8" />
+
+    <script language="JavaScript">
+      function testResults(form) {
+        var name = form.inputbox.value;
+        var msg = "";
+        if (name != "")
+          msg = name + " 同學你好，歡迎加入我們的 HTML/CSS 學習。";
+        document.getElementById("msg").innerText = msg;
+      }
+    </script>
+
+    <style>
+      input[type="button"] {
+        width: 60px;
+        height: 30px;
+        color: antiquewhite;
+        background-color: rgb(42, 71, 165);
+      }
+
+      #msg {
+        font-size: 20px;
+        width: fit-content;
+        color: antiquewhite;
+        background-color: rgb(0, 81, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <form name="myform" action="" method="GET">
+      請輸入你/妳的名字 <br />
+      <input type="text" name="inputbox" value="" />
+      <p>
+        <input
+          type="button"
+          name="button"
+          value="Click"
+          onClick="testResults(this.form)"
+        />
+      </p>
+    </form>
+
+    <div>Updated by Javascript:</div>
+    <p id="msg"></p>
+  </body>
+</html>
