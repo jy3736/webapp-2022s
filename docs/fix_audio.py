@@ -1,5 +1,21 @@
 import re, os, sys
 
+radio_play="""
+
+    <script>
+        document.addEventListener('play', function(e){  
+            var audios = document.getElementsByTagName('audio');  
+            for(var i = 0, len = audios.length; i < len;i++){  
+                if(audios[i] != e.target){  
+                    audios[i].pause();  
+                }  
+            }  
+        }, true);
+    </script>
+
+</body>
+"""
+
 def main(name):
     fh = open(name,encoding="utf-8") 
     text = ""
@@ -16,6 +32,7 @@ def main(name):
         audio = f'<img src="{d}/yang.png" width="80px"><audio src="{fn}" type="audio/x-m4a" controls></audio>'
         text = text.replace(m,audio)
 
+    text = text.replace("</body>",radio_play)
     fh = open(ofn, 'w', encoding='UTF-8')
     fh.write(text)
     fh.close()
