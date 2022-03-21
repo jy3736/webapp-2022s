@@ -1,7 +1,7 @@
 import re, os, sys
 
 re_catalog = re.compile(r"(?P<all><p id=\"(?P<id>[0-9a-zA-Z\-]+)\"[^>]*>\[目錄\]</p>)")
-re_link = re.compile(r"(?P<all><h3 id=\"(?P<id>[0-9a-zA-Z\-]+)\"[^>]*>(?P<text>\[(?P<lable>[^\[\]]*)\].*)</h3>)")
+re_link = re.compile(r"(?P<all><h3 id=\"(?P<id>[0-9a-zA-Z\-]+)\"[^>]*>(?P<text>\[(?P<lable>[^\[\]]*)\][^>]*)<\/h3>)")
 re_prop = re.compile(r"(?P<all><table class=\"properties\"><tbody>.*</tbody></table>)")
 
 t_catalog = "<div id=\"yang-id-001\" class=\"yang-class-001\">目 錄 (課堂練習/作業)：</div>\n"
