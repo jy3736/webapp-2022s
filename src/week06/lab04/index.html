@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <title>Week 06 - 課堂練習 04</title>
+    <meta charset="UTF-8" />
+    <style>
+      form,
+      input,
+      #result {
+        font-size: 30px;
+        margin-left: 20px;
+      }
+
+      input[type="text"] {
+        width: 100px;
+      }
+
+      #line {
+        padding: 10px;
+      }
+
+      #result {
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <label for="A">A :</label>
+      <input type="text" id="A" name="A" value="0" /><br />
+      <div id="line"></div>
+      <label for="B">B :</label>
+      <input type="text" id="B" name="B" value="0" /><br />
+      <div id="line"></div>
+      <div>
+        <input type="radio" id="add" name="op" value="1" />
+        <label for="add">A 加 B</label><br />
+        <input type="radio" id="sub" name="op" value="2" />
+        <label for="sub">A 減 B</label><br />
+        <input type="radio" id="mul" name="op" value="3" />
+        <label for="mul">A 乘 B</label><br />
+        <input type="radio" id="div" name="op" value="4" />
+        <label for="add">A 除 B</label><br />
+      </div>
+      <div id="line"></div>
+      <input type="button" value="計算" onclick="cal(this.form)" />
+      <span id="result"></span>
+    </form>
+
+  </body>
+</html>

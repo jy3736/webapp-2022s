@@ -1,0 +1,675 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 入門 - JavaScript HTML DOM 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></head><body><article id="4621665c-402d-44f3-b165-b21858ae77a7" class="page sans"><header><img class="page-cover-image" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/8.png" style="object-position:center 57.68%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/yang-tr-wb.png"/></div><h1 class="page-title">Web 入門 - <strong>JavaScript HTML DOM 1</strong></h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Notes</th><td><span class="selected-value select-value-color-red">incomplete</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Video</th><td></td></tr></tbody></table><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></header><div class="page-body"><h2 id="b8e457a9-fe56-487f-897d-6878a970f77e" class="block-color-purple_background">參考資料 </h2><figure id="f1a513f0-599a-40d5-ab6b-fa9c75fe73b2"><a  target="_blank" href="https://www.w3schools.com/html/html_scripts.asp" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">HTML JavaScript</div><div class="bookmark-description">W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.</div></div><div class="bookmark-href"><img src="https://www.w3schools.com/favicon.ico" class="icon bookmark-icon"/>https://www.w3schools.com/html/html_scripts.asp</div></div><img src="https://www.w3schools.com/images/w3schools_logo_436_2.png" class="bookmark-image"/></a></figure><figure id="425b3a50-587c-49f3-a31e-b0ce85ef3d6b"><a  target="_blank" href="https://www.w3schools.com/js/js_htmldom.asp" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">JavaScript HTML DOM</div><div class="bookmark-description">With the HTML DOM, JavaScript can access and change all the elements of an HTML document. When a web page is loaded, the browser creates a Document Object M odel of the page.</div></div><div class="bookmark-href"><img src="https://www.w3schools.com/favicon.ico" class="icon bookmark-icon"/>https://www.w3schools.com/js/js_htmldom.asp</div></div><img src="https://www.w3schools.com/images/w3schools_logo_436_2.png" class="bookmark-image"/></a></figure><h2 id="8245a2a8-dccb-4a1e-8565-3a75b28e56a4" class="block-color-purple_background">課程設計</h2><h3 id="7905e49b-c8b7-46b3-b370-7d7d9094c3d9" class="block-color-orange">Basic Template</h3><pre id="c306aec9-81b4-45b6-9bf7-89732ba47868" class="code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-TW&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Week xx - 課堂作業 xx&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+  &lt;/head&gt;
+	&lt;body&gt;
+
+    &lt;!-- Write your code here --&gt;
+
+		&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre><p id="b7314a41-c824-40d3-97c5-b0e3cb6f5a45" class="">
+</p><p id="407507e9-95f7-4c59-a4ab-3eeb2b2f3a0f" class="">[目錄]</p><h3 id="0235fdfc-2d2d-4f02-bea5-12b353929693" class="block-color-gray_background"><strong>JavaScript HTML DOM</strong></h3><blockquote id="c9a7e515-f502-4de5-92ed-26452cf84b68" class=""><a  target="_blank" href="https://www.w3schools.com/js/js_htmldom.asp">https://www.w3schools.com/js/js_htmldom.asp</a></blockquote><ul id="506a2c3f-c25e-4ffc-9c52-acd86012f936" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/html/html_scripts.asp"><strong>HTML JavaScript</strong></a></span></li></ul><ul id="7bcb3139-0548-4970-84d9-baa37bf2955c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_intro.asp"><strong>JavaScript Introduction</strong></a></span></li></ul><p id="a103d16d-2e74-44b3-a4da-a3d870439f5a" class="">
+</p><h3 id="c9888a2f-6b1a-47b0-820f-28df497b1edd" class="block-color-teal_background">[課堂練習 1]：還記得如何使用 HTML/CSS 說 『Hello World』 嗎？</h3><div id="40d8d7af-8492-4b9f-8245-0aed5b37fc85" class="column-list"><div id="3a0b90b5-1608-4e1c-9fbb-848e6e7d9790" style="width:37.5%" class="column"><figure id="20acdd64-03e9-4336-a0ac-58dd49242b79"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/webapp-week06-lab01.m4a">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5dc0aaf3-220a-4c6c-8214-ca58b173c6cf/webapp-week06-lab01.m4a</a></div></figure></div><div id="c97a18f3-32a5-4e62-9d45-63a61bbc83eb" style="width:62.5%" class="column"><figure id="706c95ba-82f1-4f1d-b5ee-6a345670d068"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/index.html">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e38d0b2c-194d-4f9a-826c-11e5daa088f2/index.html</a></div><figcaption><mark class="highlight-brown_background">範例程式下載</mark></figcaption></figure><h3 id="ce8e9037-ce1f-4ad9-b1c8-fc79302e4e7e" class="block-color-yellow">輸出結果</h3><figure id="bbe73a9c-9151-49f0-8e4c-3a60addf8156" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled.png"><img style="width:432px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled.png"/></a></figure></div></div><h3 id="e28daf09-a865-4d64-844c-557e056e583e" class="block-color-yellow">index.html 程式</h3><figure id="738812e0-eabb-4f2f-b4a3-ea5e2a763561" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%201.png"><img style="width:432px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%201.png"/></a></figure><h3 id="4d709451-9005-4e10-9929-1b479024fb96" class="block-color-teal_background">[課堂練習 2]：撰寫一個靜態 HTML/CSS 乘法表</h3><div id="98a184c1-3f7e-4913-8b7f-45cf6ec5455e" class="column-list"><div id="bf78d9d9-e53b-41b5-bfca-95e5f0cefd3d" style="width:37.5%" class="column"><figure id="6e18c422-a749-49a8-87cc-93ef537b32e2"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/webapp-week06-lab02.m4a">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/99bc3a8a-4ea4-47a8-a4af-6f5bfde762b9/webapp-week06-lab02.m4a</a></div></figure></div><div id="a90943da-0e9d-4cb6-94f2-ccaa08479bc6" style="width:62.5%" class="column"><figure id="a28699b3-05a8-437c-8c2d-a263ae47dc2c"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/index%201.html">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/62c39b93-1a73-4c3b-ac39-c5fadcc07100/index.html</a></div><figcaption><mark class="highlight-brown_background">範例程式下載</mark></figcaption></figure><h3 id="55fec0da-fd44-4a87-8351-edab7783ac3e" class="block-color-yellow">輸出結果</h3><figure id="adea466a-f115-4673-900d-54364df9ff0e" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%202.png"><img style="width:336px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%202.png"/></a></figure></div></div><h3 id="7bd1f51b-c923-4755-a152-829a321f5b19" class="block-color-yellow">index.html 程式</h3><figure id="dd21683d-39f5-4797-b551-6ce60deb4640" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%203.png"><img style="width:384px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%203.png"/></a></figure><h3 id="e96e157e-3c37-4137-86d9-ec469e2c5569" class="block-color-teal_background">[課堂練習 3]：利用外部連結的 CSS 檔案，將 HTML 頁面轉成暗黑色系</h3><div id="601f9e49-5c46-45a6-bd50-91f3e67aa238" class="column-list"><div id="1bccad36-013a-4224-88f1-78ac97445976" style="width:50%" class="column"><figure id="a37b7f7d-58c7-4046-b90b-e3f6e0a47737"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/webapp-week06-lab03.m4a">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4707fdb6-207f-4899-a187-5edb7a8c6cdc/webapp-week06-lab03.m4a</a></div></figure><figure id="52c78858-6290-4a1b-ac9c-d49ea632b96b" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%204.png"><img style="width:384px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%204.png"/></a></figure></div><div id="7532f626-44da-4a73-adf1-adfa9a548343" style="width:49.99999999999999%" class="column"><figure id="7d7a9d02-1638-4991-b935-5dd3bd8c5d12"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/index%202.html">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11ae2eba-6ede-40d9-ba06-e2276abb7071/index.html</a></div><figcaption><mark class="highlight-brown_background">範例程式下載</mark></figcaption></figure><figure id="af58549b-85b1-4226-806c-60a3dd94f342" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%205.png"><img style="width:1190px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%205.png"/></a></figure></div></div><h3 id="1e62b697-37d1-4564-a428-ff9efe639371" class="block-color-yellow">index.html 程式</h3><figure id="c405bcd0-6ef2-4071-ad5e-70ede9b51d29" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%206.png"><img style="width:480px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%206.png"/></a></figure><h3 id="e174ff1e-afa8-4cd1-82f7-5ea40d20613b" class="block-color-teal_background">[課堂練習 4]：使用 HTML/CSS Form 設計功能極簡的計算機介面</h3><div id="b3b3aa02-d25b-46f5-a006-44ef8a570a98" class="column-list"><div id="d49d6fdc-31b2-4465-82ce-168cd171abfc" style="width:37.5%" class="column"><figure id="2205399e-20d8-435c-83b7-8cb6cc70e778"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/webapp-week06-lab04.m4a">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d786908e-3517-4051-8dbc-63cafebab865/webapp-week06-lab04.m4a</a></div></figure></div><div id="fdbdcdbf-3fbc-4bdb-a020-523f2429be8b" style="width:62.5%" class="column"><figure id="71694b7f-db87-4aef-8f8c-897b0e4807e4"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/index%203.html">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a096c16-0d99-47da-8fb7-a69f2c30239d/index.html</a></div><figcaption><mark class="highlight-brown_background">範例程式下載</mark></figcaption></figure><h3 id="9b2b886c-9896-440f-b5ae-df07186a8688" class="block-color-yellow">輸出結果</h3><figure id="7ff9d4ad-d3d1-47b5-ad0f-45a15a0bd4cf" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%207.png"><img style="width:240px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%207.png"/></a></figure></div></div><h3 id="17e3cbfd-6a51-4345-a52d-5225781230ee" class="block-color-yellow">index.html 程式</h3><figure id="f94fda68-6406-47b7-9acd-10bd4ba003d2" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%208.png"><img style="width:384px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%208.png"/></a></figure><h3 id="a974f355-4d8b-42de-bbe6-ec22fb001ec8" class="block-color-teal_background">[課堂練習 5]：完成『課堂練習 4』所需要的 Javascript 函數 <code>cal(...)</code></h3><div id="50929688-bc49-4f6b-9cfc-05491c030868" class="column-list"><div id="d84610ea-d860-4602-8504-739a46048cd7" style="width:50%" class="column"><figure id="4572d5f8-88f9-420c-90ac-71dab6033347"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/webapp-week06-lab05.m4a">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ac4baef9-2dff-4b9e-b4ac-781848f1dfef/webapp-week06-lab05.m4a</a></div></figure></div><div id="95d25e6e-a6a1-4cf5-b261-97eda328798c" style="width:50%" class="column"><figure id="03fe7fed-b08b-4dc1-b93f-39750d9de9cf" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%209.png"><img style="width:240px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%209.png"/></a></figure></div></div><figure id="a64005ea-a545-45d1-89b5-343fd56e9ee1" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%2010.png"><img style="width:384px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/Untitled%2010.png"/></a></figure><h3 id="42827be5-b8aa-4c46-ac9a-301f56bef581" class="block-color-blue_background">[課堂作業 1]：完成『第5周』的所有『課堂練習』及『課堂作業』</h3><div id="49918175-9d18-411a-829d-a694dff98792" class="column-list"><div id="e43c1536-f57a-41ea-93c7-22d02480f462" style="width:43.75%" class="column"><figure id="f9b4d9ff-9666-4517-87da-9fc9219f31c9"><div class="source"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/webapp-week06-hw01.m4a">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7e86b3e-4b49-486c-af1f-e6cdf1c42463/webapp-week06-hw01.m4a</a></div></figure></div><div id="99c1969e-06c4-43c7-af11-59b3d56bb578" style="width:56.25%" class="column"><figure id="222c063a-8383-4233-86e6-215868571114"><a  target="_blank" href="https://jy3736.github.io/webapp-2022s/html_css_basics_4-audio-dark.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Web 入門 - HTML/CSS 基礎 4</div><div class="bookmark-description">An HTML form is used to collect user input. The user input is most often sent to a server for processing. The HTML element is used to create an HTML form for user input: The element is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.</div></div><div class="bookmark-href">https://jy3736.github.io/webapp-2022s/html_css_basics_4-audio-dark.html</div></div><img src="https://jy3736.github.io/webapp-2022s/Web%20%E5%85%A5%E9%96%80%20-%20H%2039682/Untitled%201.png" class="bookmark-image"/></a></figure></div></div><p id="f5692aa3-b5e6-4b84-9b1d-5448454c5fbd" class="">
+</p><figure id="763f7c40-69a4-47d9-9e6f-d9999e20c7ca" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/%E5%9C%96%E7%89%873.png"><img style="width:1322px" src="Web%20%E5%85%A5%E9%96%80%20-%20J%2020acd/%E5%9C%96%E7%89%873.png"/></a></figure></div></article>
+<script>hljs.highlightAll();</script>
+</body></html>
