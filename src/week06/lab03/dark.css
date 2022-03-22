@@ -1,0 +1,13 @@
+html {
+    color:antiquewhite;
+    background-color: rgb(27, 26, 26);
+}
+
+#html {
+    color:black;
+    background-color: antiquewhite;
+}
+
+#dark {
+    background-color: rgb(18, 18, 75);
+}
