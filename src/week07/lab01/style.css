@@ -1,0 +1,11 @@
+body {
+    background-color: rgb(43, 39, 39);
+    color: beige;
+    font-size: x-large;
+}
+
+button {
+    font-size: x-large;
+    border-radius: 5px;
+}
+

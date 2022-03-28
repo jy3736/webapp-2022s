@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <title>Week 07 - 課堂練習 02</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>What Can JavaScript Do?</h2>
+
+    <p id="msg"> </p>
+
+    <button id="dark" type="button" onclick="dark()">Dark Mode</button>
+    <button id="normal" type="button" onclick="normal()">Normal Mode</button>
+
+    <script>
+      function dark() {
+        var msg = document.getElementById("msg");
+        msg.innerText = "Dark Mode!";
+      }
+
+      function normal() {
+        var msg = document.getElementById("msg");
+        msg.innerText = "Normal Mode!";
+      }
+    </script>
+  </body>
+</html>
+

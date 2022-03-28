@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(43, 39, 39);
+    color: beige;
+    font-size: x-large;
+}
+
+button {
+    font-size: x-large;
+    border-radius: 5px;
+    width: 60px;
+}
+
+#dark {
+    background-color: blue;
+    color:antiquewhite;
+}
+
+#normal {
+    background-color:burlywood;
+    color:blue;
+}
+
+#msg {
+    height:fit-content;
+    width:fit-content;
+}
+
+
