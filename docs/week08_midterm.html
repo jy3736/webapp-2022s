@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>期中考 (動態網頁設計)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></head><body><article id="f8d99402-b5a7-4a61-a84e-046cdc5f0f57" class="page sans"><header><img class="page-cover-image" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/2.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/yang-tr-wb.png"/></div><h1 class="page-title">期中考 (動態網頁設計)</h1><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></header><div class="page-body"><h2 id="b64b8d0a-cd2b-421c-a579-9a0c106115ac" class="block-color-purple_background">在家考試(Take-home Exam)，配分以實際考試狀況再行調整</h2><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=9a20ec1d-383e-4f56-8b80-82bddc56c016" id="soundon"></iframe></div></figure><ul id="9c83dbb0-f9b8-41c8-97a6-a272dac44930" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">1 ~ 5</mark> 每題<mark class="highlight-red">『15分』</mark>，加分題再加<mark class="highlight-red">『15分』</mark>。<ul id="c7f4aaf6-2b86-46d7-8af3-51f0f425f74b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red">『在家考試(Take-home Exam)』</mark>題，<mark class="highlight-red">題目不會變動</mark>期中考當天檢查繳交。</li></ul></li></ul><ul id="26949a88-b8fd-4e06-a266-0028f464cbb4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">6 ~ 8 </mark>每題<mark class="highlight-red">『30分』</mark>的進階考題，考試當天會對繳交的同學進行『口試』。<ul id="f2e34fcf-d067-4497-877c-9d9d7dd92adc" class="bulleted-list"><li style="list-style-type:circle">這3道是比較複雜的題目，不太可能有相似度極高的答案，請不要隨意拿他人的答案繳交，你絕對過不了『口試』這一關的。</li></ul></li></ul><ul id="c41bd84b-4f6c-4d91-ad44-a588df442737" class="bulleted-list"><li style="list-style-type:disc">共計<mark class="highlight-red">『195分』</mark>，超過『100分』的部分計入平時成績。</li></ul><h2 id="3446aeee-77d4-47c9-821e-d257fb4a0bfc" class="block-color-purple_background">期中考題設計</h2><div id="d3935a79-62c3-4402-a7a0-e6647341803c" class="column-list"><div id="191d73f7-99cf-476b-822d-baa186936aab" style="width:12.5%" class="column"><figure id="f7d7ded3-359f-4581-8310-9844ed4d6d09" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/Untitled.png"><img style="width:144px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/Untitled.png"/></a></figure></div><div id="b85b2495-38ea-455a-a0ac-930621de8701" style="width:87.50000000000003%" class="column"><div id="yang-id-001" class="yang-class-001">目 錄：</div>
+<a href="#04e0f858-3803-4361-8da4-ea115744b3e6" class="yang-class-002">[實作問題 1]：靜態景點介紹網頁設計。</a>
+<a href="#d247e799-54f1-4e55-b80e-cb0396cf66f6" class="yang-class-002">[實作問題 2]：靜態『文件式』頁面設計。</a>
+<a href="#15f62709-5928-4f19-aaa5-8e4c5e999643" class="yang-class-002">[實作問題 3]：靜態『表格(Tables)』頁面設計。</a>
+<a href="#c5244127-a9d4-4988-941f-51fe8e64252e" class="yang-class-002">[實作問題 4]：本地端(Client-side)『表單(Forms)』應用。</a>
+<a href="#7ddff252-a816-4902-8005-0e9a8af7c69b" class="yang-class-002">[實作問題 5]：簡易動態『表格(Tables)』頁面設計。</a>
+<a href="#1c252024-b2c0-4d60-b349-7dfc08a51e15" class="yang-class-002">[實作問題 6]：JavaScript 應用 - 簡易乘法表。</a>
+<a href="#b4e41f7c-be98-422d-b7e6-c3e2930d57ab" class="yang-class-002">[實作問題 7]：JavaScript 應用 - 動態產生『九九乘法表』。</a>
+<a href="#5561a066-36db-4dc8-a94f-64460401ef13" class="yang-class-002">[實作問題 8]：使用 JavaScript 依參數 n，繪製『n-層』等腰三角形。</a>
+</div></div><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="04e0f858-3803-4361-8da4-ea115744b3e6" class="block-color-teal_background">[實作問題 1]：靜態景點介紹網頁設計。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=68ebebd9-43fb-440c-b551-f0985de7e0ac" id="soundon"></iframe></div></figure><ul id="047f09e8-5f1b-4f24-8b19-dda244c1ddf3" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第2周 課堂作業 1</span></li></ul><ul id="b5db6b56-958c-48c3-9f18-ea9dcdab03f1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考範例設計<mark class="highlight-red"> </mark><mark class="highlight-yellow">2 張『臺灣』景點</mark>介紹頁面。</span></li></ul><ul id="d1909099-9dca-44f6-9b87-863f5e87548c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">設計一<mark class="highlight-yellow">『主頁』</mark>可以連結到其中任一『景點頁面』。</span></li></ul><ul id="0160ca28-e60d-4d52-86bd-c9afac2fc1a7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">記得在景點介紹頁面中插入<mark class="highlight-yellow">返回『主頁』</mark>的連結。</span></li></ul><ul id="d369bc47-8926-4a18-bbeb-a48ac7016c4c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">設計一通用的 CSS 樣板程式，可同時改變兩張景點介紹頁面的展現方式。</span></li></ul><p id="6d163a11-72f3-4cce-a151-79faafce41dd" class="block-color-pink_background">注意事項： 過於陽春的簡易頁面設計，會被扣『30%』的成績反應美感設計的匱乏。</p><h3 id="2f138dd1-3ba4-4691-9a8b-8e1a685492b2" class="block-color-yellow">參考設計：(景點介紹頁面)</h3><figure id="c1962aed-df78-456b-9b9a-45590dd71c3c" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/prob01.gif"><img style="width:624px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/prob01.gif"/></a></figure><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="d247e799-54f1-4e55-b80e-cb0396cf66f6" class="block-color-teal_background">[實作問題 2]：靜態『文件式』頁面設計。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=e3c5c731-3c9c-41a5-b62f-29c11999321e" id="soundon"></iframe></div></figure><ul id="994299b5-617d-49f1-aa1d-4f741d86db93" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第3周 課堂作業 1</span></li></ul><ul id="d9fb8946-8dc7-4871-9198-59eeb20d3ad0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">與作業<mark class="highlight-yellow">『完全相同』</mark>的『文件式』頁面設計。</span></li></ul><ul id="b651b3d6-fa4c-43f6-bc73-182e85c43178" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考檔案夾內的<mark class="highlight-yellow">『輸出結果.png』</mark>，完成 index.html 頁面的設計。</span></li></ul><ul id="e6faeac0-f939-42a1-82fc-95955ac9517f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">將 CSS 樣式設計獨立成<mark class="highlight-yellow">『外部程式』</mark>。</span></li></ul><ul id="900f4235-f6b8-4d8e-b9ed-9df1266d22ae" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">提供 <mark class="highlight-yellow">『2 組』</mark>具辨識度的CSS設計，展示不同的頁面風格。</span></li></ul><figure id="d33379f8-da60-47f1-8cb6-1ecd29a6dd31" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.png"><img style="width:624px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.png"/></a></figure><p id="5784d50a-0bcb-4999-8fc3-9704fcf6f046" class="block-color-pink_background">注意事項： 務必提供 『2 組』具辨識度的CSS頁面風格。</p><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="15f62709-5928-4f19-aaa5-8e4c5e999643" class="block-color-teal_background">[實作問題 3]：靜態『表格(Tables)』頁面設計。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=872dfd11-9355-493d-9dac-128e8f1482bd" id="soundon"></iframe></div></figure><ul id="fabb58ff-e56a-4936-aafa-ad176d0e01b7" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第4周 課堂作業 1</span></li></ul><ul id="32b67fad-62d5-47ca-accf-267e24ff7284" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">與作業<mark class="highlight-yellow">『幾乎』</mark>相同的『靜態表格』設計。</span></li></ul><ul id="64130bbf-491b-437b-a292-24a7237520bf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考檔案夾內的<mark class="highlight-yellow">『輸出結果.png』</mark>，完成 index.html 頁面的設計。</span></li></ul><ul id="7c824622-d73a-42a9-9edb-11f5452b72f5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">樣式(style)描述須置於<mark class="highlight-yellow">『獨立』</mark>的外部CSS程式 (style.css)。</span></li></ul><ul id="6306af3d-8f31-404c-b806-f02b6f2a7b51" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">「欄位寬度寬度比例」<mark class="highlight-yellow"> 時間：爐溫：豆溫：狀態 = 1 : 1 : 1 : 3</mark>。</span></li></ul><ul id="cac87e74-2603-488e-a956-91b8208460db" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">「表格寬度」為瀏覽器寬度的 <mark class="highlight-yellow">90%</mark>。</span></li></ul><ul id="69aef77d-725c-4175-b383-63fe1427635e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">將 <mark class="highlight-yellow">「回溫點」、「一爆開始」、「二爆開始」</mark>設定為特定的列，<mark class="highlight-yellow">只可以使用 『id』</mark> 作為CSS的選擇器。</span></li></ul><ul id="89416a76-4d5a-4279-a647-5eddb526feb9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">可以自由選擇配色，但是樣式(字的顏色及背景)要跟範例圖樣相符。</span></li></ul><p id="32279254-867a-4c45-b80b-4bc20d790361" class="">
+</p><figure id="3791e8b2-b512-4236-abfb-e1c0390b56db" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.gif"><img style="width:672px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.gif"/></a></figure><p id="938ed1b3-7042-498a-916e-27cf4a450d94" class="block-color-pink_background">注意事項： 這道題目與作業 ~90% 相同，請注意部分參數的改變，若直接以原本作業的答案繳交，你只會得到 『30%』的成績。</p><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="c5244127-a9d4-4988-941f-51fe8e64252e" class="block-color-teal_background">[實作問題 4]：本地端(Client-side)『表單(Forms)』應用。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=63862d27-2aa6-497d-a903-8724fa62ce36" id="soundon"></iframe></div></figure><ul id="a9cfdb24-6bb2-4573-bdfa-a46bb75ec3ad" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第5周 課堂作業 1</span></li></ul><h3 id="c10be9c8-d8da-4ccb-b0f3-bd5b3a38a116" class="block-color-yellow">基本題：</h3><ul id="0348a988-a5e0-4a76-9985-94596aa0185e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">這是一個與作業<mark class="highlight-yellow">『完全』</mark>相同的考題。</span></li></ul><ul id="879b4e89-d6f3-4e0f-98c2-b6ea249daf26" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">利用 Javascript <mark class="highlight-yellow">對輸入欄位做簡單的驗證</mark>，Javascript 程式必須是一個<mark class="highlight-yellow">外部的程式檔 main.js</mark>。</span></li></ul><ul id="78a4fb67-3572-419a-b9b7-e19c99e99afc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">當 <mark class="highlight-yellow">Click 按鍵</mark>被點擊時，檢查表單(form)中的文字輸入框(text input)是否為空的。</span></li></ul><ul id="2d50d61d-354e-4cdb-bd6e-79f72e61101e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">文字框如果為空的，輸出 <mark class="highlight-yellow">『同學你好，你好像忘了輸入名字哦。』</mark> 訊息。</span></li></ul><ul id="ab78e89b-d1e2-4e82-9d7d-39178bc17e4d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">文字框若有資料(xxx)，輸出對應的 <mark class="highlight-yellow">『xxx 同學你好，歡迎加入我們的 HTML/CSS 學習。』</mark> 訊息。</span></li></ul><figure id="efd33e94-eb92-439b-a8ed-45f2f568c4be" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%9F%BA%E6%9C%AC%E9%A1%8C%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.gif"><img style="width:624px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%9F%BA%E6%9C%AC%E9%A1%8C%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.gif"/></a></figure><h3 id="80d4b20b-66c7-4a27-8228-3093a1f63fc0" class="block-color-yellow">加分題：</h3><ul id="776ce154-48b3-4406-9141-f7ae5c630a96" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">觀察在文字輸入框中<mark class="highlight-yellow">直接按『enter』鍵盤</mark>的反應。</span></li></ul><ul id="d647e2d4-2758-4bba-b50d-bb11f561685b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">他並無法像當 Click 按鍵被點擊時，進行文字對話框資料檢查及對應輸出。</span></li></ul><ul id="396bc024-f5e2-4621-8c2b-9ad65ae3e2d0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">這是因為我們並<mark class="highlight-yellow">沒有處理 &lt;input type=&quot;text&quot;.....&gt; 中的『change』事件</mark>。</span></li></ul><ul id="51685312-6efc-413a-972e-4700643b3bed" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><mark class="highlight-yellow">請在網路中找尋解決方案</mark>，將『change』事件的處理程式加入，使其擁有像Click 按鍵相同的反應。</span></li></ul><h3 id="dbb5ba2e-3e05-4c18-bc01-b0b97db2b67f" class="block-color-yellow">這範例展示，並『沒』點擊 Click 按鍵：</h3><figure id="1a197687-cb33-43e4-93ae-d10916c8891f" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%8A%A0%E5%88%86%E9%A1%8C%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.gif"><img style="width:624px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%8A%A0%E5%88%86%E9%A1%8C%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C.gif"/></a></figure><p id="2a0ae9ea-b43f-408d-acd8-34e4c58ed918" class="block-color-pink_background">注意事項： 基本題與作業100%相同，加分題有一定的難度，考驗各位上網搜尋資料的能力。</p><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="7ddff252-a816-4902-8005-0e9a8af7c69b" class="block-color-teal_background">[實作問題 5]：簡易動態『表格(Tables)』頁面設計。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=49fd48cf-0968-4cb2-a35f-c25281c7645d" id="soundon"></iframe></div></figure><ul id="bad6777e-01fb-4515-97c0-f0a1e2819e24" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第5周 課堂作業 2</span></li></ul><h3 id="b6f40196-9e00-4eff-8be6-6ee50696f7cd" class="block-color-yellow">基本題：</h3><ul id="ae85c025-20e3-4a79-bfcb-68811a3c75a2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">這是一個與作業<mark class="highlight-yellow">『完全』</mark>相同的考題。</span></li></ul><ul id="41dcd73d-0557-49c7-878d-af3fbffcf808" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">當<mark class="highlight-yellow"> Update 按鍵</mark>被點擊時，以隨機亂數的方式<mark class="highlight-yellow">改變『120秒時』的『爐溫』</mark>。</span></li></ul><ul id="733755b1-d2c9-47ef-a7e6-235911d0be27" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">當 <mark class="highlight-yellow">Add Record 按鍵</mark>被點擊時，以隨機亂數的方式<mark class="highlight-yellow">增加一筆新資料</mark>：
+資料格式：&lt;隨機亂數&gt; &lt;隨機亂數&gt; &lt;隨機亂數&gt; &quot;隨機資料&quot;
+參考範例：11 203 178 隨機資料</span></li></ul><ul id="426fc4c0-c205-4093-941a-3ccbc39fa3bd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Update 按鍵點擊更新的資料，須以<mark class="highlight-yellow">『紅色』</mark>的方式呈現。</span></li></ul><ul id="5487f783-b4a2-4b43-86b3-d30af0e55841" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Add Record 按鍵點擊產生的資料，須以<mark class="highlight-yellow">『深色背景』</mark>的方式呈現</span></li></ul><figure id="19066891-a6a0-4803-9d8f-4475d54f8311" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%9F%BA%E6%9C%AC%E9%A1%8C%E5%87%BA%E7%B5%90%E6%9E%9C.gif"><img style="width:528px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%9F%BA%E6%9C%AC%E9%A1%8C%E5%87%BA%E7%B5%90%E6%9E%9C.gif"/></a></figure><h3 id="5563682f-40e6-472d-b1af-35519b41a7aa" class="block-color-yellow">加分題：</h3><ul id="fbdd0b0c-dba4-46af-bfd2-40e4c4c3a28b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">當資料量到達<mark class="highlight-yellow">『10筆』</mark>時，<mark class="highlight-yellow">取消 Add Record 按鍵</mark>的『產生隨機資料』功能。</span></li></ul><ul id="5612eb79-aad1-4576-a567-3d2daa4679c9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">也就是點擊 Add Record 按鍵，將不再增加新的資料，並在底部輸出<mark class="highlight-yellow">『資料緩衝已滿!』</mark>的訊息。</span></li></ul><figure id="5fe1e9ac-4bf6-4802-9c79-55f6e0b47745" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%8A%A0%E5%88%86%E9%A1%8C%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%201.gif"><img style="width:624px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%8A%A0%E5%88%86%E9%A1%8C%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%201.gif"/></a></figure><p id="99e8c3c8-34f0-43a8-b36e-c76e502db33c" class="block-color-pink_background">注意事項： 基本題與作業100%相同，加分題難度適中，考驗你對JavaScript邏輯判斷的使用能力。</p><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="1c252024-b2c0-4d60-b349-7dfc08a51e15" class="block-color-teal_background">[實作問題 6]：JavaScript 應用 - 簡易乘法表。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=70d778ba-364f-421e-9d2f-e90b7057a75e" id="soundon"></iframe></div></figure><ul id="538bdb4e-c6f7-4b74-8aec-48c72e623a1d" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第7周 課堂練習 5 </span></li></ul><h3 id="330ec408-45f0-4df8-bf28-6a4697d65a1f" class="block-color-yellow">進階題：</h3><ul id="b131df0f-ba6e-4cb8-8a5b-4d46eac93fb6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">這是一課堂練習的『進化』考題。</span></li></ul><ul id="84b8276f-9581-4e41-bdfc-bb70efe71e7a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">增加成<mark class="highlight-yellow">『9個』</mark>數字按鍵(1,2,3,...,9)。</span></li></ul><ul id="f9f6495e-61af-4990-a5f3-31274939220b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">當任何一個數字按鍵被點擊時，對應輸出該數字的乘法表。</span></li></ul><ul id="d18ae620-d23a-41d0-9e45-a29e87008794" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">9個按鍵必須固定在適當的位置，且要以置中『<mark class="highlight-yellow">九宮格』</mark>的形式呈現。</span></li></ul><ul id="129ad1da-afbd-48a4-9c71-7ba17fb52819" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">你『必須』為你的『按鍵』及『乘法表』套上<mark class="highlight-yellow">顯眼的樣式(style)</mark>，『僅』功能完成正確的答案只有<mark class="highlight-yellow">80%</mark>的成績。</span></li></ul><ul id="8b6d0492-6dfd-4668-941d-704d4beda5e7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">CSS 及 Javascript 程式語必須是獨立的外部檔案。</span></li></ul><figure id="3736fadd-45b5-4ad1-bc74-abe1fcdaf65c" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%201.gif"><img style="width:480px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%201.gif"/></a></figure><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="b4e41f7c-be98-422d-b7e6-c3e2930d57ab" class="block-color-teal_background">[實作問題 7]：JavaScript 應用 - 動態產生『九九乘法表』。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=7feae735-784f-4294-bb94-c7b332d42163" id="soundon"></iframe></div></figure><ul id="492bde2b-3302-47c5-9f01-cc558ebf6b73" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第7周 課堂練習 7</span></li></ul><h3 id="5c9bd46c-311c-4bfa-948b-4f912abaf4bd" class="block-color-yellow">進階題：</h3><ul id="705149c0-39fc-4fc1-ae39-61f952cf61f6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">這是一課堂練習的『進化』考題。</span></li></ul><ul id="ee0422db-d316-47d2-a1ba-754ae4c675bf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">印出一張九九乘法表。</span></li></ul><ul id="5a99eaa0-1e68-43ec-866b-07b1883e1464" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">唯一的要求就是，<mark class="highlight-yellow">不可在 HTML 程式語言中『直接輸出』乘法表</mark>。</span></li></ul><ul id="7d55ae49-e4ad-405f-a785-d5121bdc1ef7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">正確的解題方式，是經由<mark class="highlight-yellow"> JavaScript 產生乘法表</mark>並填入 HTML 程式中。</span></li></ul><figure id="9de6564b-d62d-44ca-b093-a25356483368" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%201.png"><img style="width:480px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%201.png"/></a></figure><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="5561a066-36db-4dc8-a94f-64460401ef13" class="block-color-teal_background">[實作問題 8]：使用 JavaScript 依參數 n，繪製『n-層』等腰三角形。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=6ad4e757-f383-4dce-bc57-8e834717e897" id="soundon"></iframe></div></figure><ul id="6bd42eef-99a9-4073-ba42-738f91e93c6a" class="block-color-red to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考作業：第7週 課堂練習 9 + 第5週 課堂作業 1</span></li></ul><h3 id="6cce0789-ba2c-44e7-83df-d4d38905e458" class="block-color-yellow">進階題：</h3><ul id="143d3d83-77e6-4c97-8642-ef1d627c79c0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">這是一課堂練習的『進化』考題。</span></li></ul><ul id="6420a522-0a99-431f-8a4e-cdcec4ad0a34" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">參考輸出結果，設計簡易的使用者操作介面。</span></li></ul><ul id="a27606fe-b679-4d2d-ba47-971e19225b0e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">輸入的整數必須<mark class="highlight-yellow">介於 1 ~ 10 </mark>之間，超出範圍只要在底下印出<mark class="highlight-yellow">『輸入整數超出範圍!』</mark>訊息。</span></li></ul><ul id="a0637c3b-d257-4233-8384-785d1b083871" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">當 <mark class="highlight-yellow">Draw 按鍵</mark>被點擊時，擷取表單中符合範圍的整數n，繪製出對應的<mark class="highlight-yellow">『n-層』等腰三角形</mark>。</span></li></ul><ul id="7a2c95f0-947c-4ab5-aca2-7c616744f5f9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">表單中的所有元素，必須在瀏覽器中<mark class="highlight-yellow">呈現置中的位置</mark>，否則將會被扣<mark class="highlight-yellow">20%</mark>的成績。</span></li></ul><figure id="62630fa7-2184-4390-ac64-79af388efc86" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%202.gif"><img style="width:672px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E8%BC%B8%E5%87%BA%E7%B5%90%E6%9E%9C%202.gif"/></a></figure><p id="67da4a4e-b1d3-412f-a05b-615b946e62a7" class="">
+</p><figure id="40f156f9-0cdb-4b4b-a78a-83c52b1724a7" class="image"><a href="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%9C%96%E7%89%873.png"><img style="width:1322px" src="%E6%9C%9F%E4%B8%AD%E8%80%83%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%20f7d7d/%E5%9C%96%E7%89%873.png"/></a></figure><p id="e4992683-1758-42d2-8bb7-7868ccee5130" class="">
+</p></div></article>
+<script>hljs.highlightAll();</script>
+</body></html>
