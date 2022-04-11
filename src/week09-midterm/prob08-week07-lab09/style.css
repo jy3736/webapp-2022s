@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(43, 39, 39);
+    color: beige;
+    font-size: x-large;
+    margin: auto;
+}
+
+h2,
+form {
+    width: fit-content;
+    margin: auto;
+}
+
+#bnt {
+    font-size: x-large;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+#tb {
+    font-size: x-large;
+    border-radius: 5px;
+    width: 30px;
+}
+
+#box {
+    height: 270px;
+    margin: auto;
+}
+
+#msg {
+    width: fit-content;
+    margin: auto;
+    color:black;
+    background-color:cornflowerblue;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#error {
+    color : red;
+}

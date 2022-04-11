@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <title>Week 05 - 課堂作業 2</title>
+  <meta charset="UTF-8" />
+  <style>
+    #newrow {
+      color:rgb(4, 3, 24);
+      background-color: rgb(221, 186, 186);
+    }
+  </style>
+
+</head>
+
+<body>
+  <button type="button" onclick="addRec()">Add Record</button>
+  <button type="button" onclick="update()">Update</button>
+ <table id="roaster">
+    <tr>
+      <th>時 間 (sec)</th>
+      <th>爐 溫 (&#176C)</th>
+      <th>豆 溫 (&#176C)</th>
+      <th>狀 態</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>200</td>
+      <td>180</td>
+      <td>空鍋</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td id="update">180</td>
+      <td>90</td>
+      <td>回溫點</td>
+    </tr>
+  </table>
+  
+  <h2 id="overflow" style="color:red;"></h2>
+ 
+  <script src="main.js"></script>
+</body>
+
+</html>
