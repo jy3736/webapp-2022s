@@ -1,0 +1,694 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 入門 - JavaScript Tutorial 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></head><body><article id="8b0a0a45-4212-44d1-bdf3-48dcf6418e39" class="page sans"><header><img class="page-cover-image" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/3.png" style="object-position:center 36.660000000000004%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/yang-tr-wb.png"/></div><h1 class="page-title">Web 入門 - <strong>JavaScript Tutorial 2</strong></h1><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></header><div class="page-body"><h2 id="f70372dc-80c7-44fc-92c0-6d1835cea49e" class="block-color-purple_background">參考資料 </h2><figure id="30f02458-2928-4ff5-b73a-61e170fd84a8"><a  target="_blank" href="https://www.w3schools.com/js/default.asp" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">JavaScript Tutorial</div><div class="bookmark-description">JavaScript is the world&#x27;s most popular programming language. JavaScript is the programming language of the Web. JavaScript is easy to learn. This tutorial will teach you JavaScript from basic to advanced. Start learning JavaScript now &quot; With our &quot;Try it Yourself&quot; editor, you can edit the source code and view the result.</div></div><div class="bookmark-href"><img src="https://www.w3schools.com/favicon.ico" class="icon bookmark-icon"/>https://www.w3schools.com/js/default.asp</div></div><img src="https://www.w3schools.com/images/w3schools_logo_436_2.png" class="bookmark-image"/></a></figure><figure id="a2cb58b3-4120-4d26-9a2a-a3881688061b"><a  target="_blank" href="https://www.w3schools.com/jsref/default.asp" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">JavaScript and HTML DOM Reference</div><div class="bookmark-description">This section contains a complete JavaScript reference documentation. The references describe the properties and methods of all JavaScript objects, along with examples. The references describe the properties and methods of the Window object, along with examples. The references describe the properties and methods of each DOM object, along with examples.</div></div><div class="bookmark-href"><img src="https://www.w3schools.com/favicon.ico" class="icon bookmark-icon"/>https://www.w3schools.com/jsref/default.asp</div></div><img src="https://www.w3schools.com/images/w3schools_logo_436_2.png" class="bookmark-image"/></a></figure><h2 id="3d5bc5df-1399-4c8f-a07d-c1a7eec90ce9" class="block-color-purple_background">課程設計</h2><h3 id="a271697d-8cdb-4d38-84d9-09185e2707e5" class="block-color-orange">Basic Template</h3><pre id="18facf97-7f53-4954-8638-ba4921c56559" class="code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-TW&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Week xx - 課堂作業 xx&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+  &lt;/head&gt;
+	&lt;body&gt;
+
+    &lt;!-- Write your code here --&gt;
+
+		&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre><p id="716bfcf0-bea7-4f1f-af01-2ba8caecc705" class="">
+</p><h3 id="0cf0799a-6b81-4b0b-8bbf-45f04f73a568" class="block-color-orange">JavaScript Basics</h3><p id="9d44a7e1-8bdf-470a-a7f2-923943a8e879" class="">參考連結：<a  target="_blank" href="https://www.w3schools.com/js/default.asp">https://www.w3schools.com/js/default.asp</a></p><div id="4a446d41-fed0-44c9-8dfd-88a81d839fd2" class="column-list"><div id="d8d7a96d-0641-43ef-9566-2e24572e7062" style="width:37.5%" class="column"><ul id="008b9615-f31c-4be1-a112-87f067fd8845" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_whereto.asp"><strong>JavaScript Where To </strong></a></span></li></ul><ul id="54304e6b-5384-472e-87ea-91615924825d" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_output.asp"><strong>JavaScript Output</strong></a></span></li></ul><ul id="f0a388e5-467c-47fe-b3f6-128add957de2" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_statements.asp"><strong>JavaScript Statements</strong></a></span></li></ul><ul id="c03804d7-a1d1-4b64-a7eb-9331aa4ded46" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_syntax.asp"><strong>JavaScript Syntax</strong></a></span></li></ul><ul id="93e32657-10b3-402d-ba19-635aec473c90" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_comments.asp"><strong>JavaScript Comments</strong></a></span></li></ul><ul id="aeab90d1-4e44-4913-9baa-53e394bd4629" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_variables.asp"><strong>JavaScript Variables</strong></a></span></li></ul><ul id="10bdbc13-644f-40c1-8e12-9b5f8f938d9b" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_let.asp"><strong>JavaScript Let</strong></a></span></li></ul><ul id="bf19ca02-25bd-4efa-bc80-2ee82a0473f5" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_const.asp"><strong>JavaScript Const</strong></a></span></li></ul><ul id="dbf5c645-8bab-4155-85bd-3836bd7226c2" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_operators.asp"><strong>JavaScript Operators</strong></a></span></li></ul><ul id="cf9cd886-3d10-4092-bb30-555068202b76" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_arithmetic.asp"><strong>JavaScript Arithmetic</strong></a></span></li></ul><ul id="6647f609-a786-4bdd-a8b9-a2b329e8eb40" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_datatypes.asp"><strong>JavaScript Data Types</strong></a></span></li></ul><ul id="611f9a1e-5ab6-4c0a-ae97-d3f05849a6a1" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_assignment.asp"><strong>JavaScript Assignment</strong></a></span></li></ul></div><div id="2db70931-446f-4925-9492-38a3078d976d" style="width:62.5%" class="column"><ul id="09542d74-0ff3-4466-82ce-d0e15c86d9e2" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"><a  target="_blank" href="https://www.w3schools.com/js/js_functions.asp"><strong>JavaScript Functions</strong></a></span></li></ul><ul id="615ec5bc-60a2-4891-98eb-f4fec309687a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_strings.asp"><strong>JavaScript Strings</strong></a></span></li></ul><ul id="d880ec1f-63af-4adc-b8b0-75c1d106fe43" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_string_methods.asp"><strong>JavaScript String Methods</strong></a></span></li></ul><ul id="0299afe8-6de4-485d-8da3-ed4d1e7cbeff" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_string_search.asp"><strong>JavaScript String Search</strong></a></span></li></ul><ul id="ab277798-be1c-4872-9707-e8033d08d653" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_string_templates.asp"><strong>JavaScript Template Literals</strong></a></span></li></ul><ul id="748a2692-67f0-4239-813b-1e60392f087c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_numbers.asp"><strong>JavaScript Numbers</strong></a></span></li></ul><ul id="b2c56ccd-13b7-4ff8-ac42-7eb6e5256499" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_number_methods.asp"><strong>JavaScript Number Methods</strong></a></span></li></ul><ul id="01d3524c-d14f-400c-b73f-09bd7fed6172" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_arrays.asp"><strong>JavaScript Arrays</strong></a></span></li></ul><ul id="c8419e46-ef37-42d6-b614-6b0dd878f3cd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_array_methods.asp"><strong>JavaScript Array Methods</strong></a></span></li></ul><ul id="952da92e-9fa4-40bb-9235-9604a873739c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_array_sort.asp"><strong>JavaScript Sorting Arrays</strong></a></span></li></ul><ul id="17a5431b-0c9b-40b6-951d-7e8897871e81" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_array_iteration.asp"><strong>JavaScript Array Iteration</strong></a></span></li></ul><ul id="e5bf8537-3333-45fa-81da-763032bc0913" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><a  target="_blank" href="https://www.w3schools.com/js/js_array_const.asp"><strong>JavaScript Array Const</strong></a></span></li></ul></div></div><div id="yang-id-001" class="yang-class-001">目 錄：</div>
+<a href="#d547d257-dac2-48fc-8b91-a88392e2bc7c" class="yang-class-002">[課堂練習 1]： 用 JavaScript 文字樣板(Text Template)建立『動態』表格。</a>
+<a href="#21aa1e8f-6daf-4629-807e-87ff1581b928" class="yang-class-002">[課堂練習 2]： 將總體『陣列(Array)』變數用作函數間資料傳輸的媒介。</a>
+<a href="#75ab48a2-7104-48f6-86e1-4f10eaef73f5" class="yang-class-002">[課堂作業 1]：漸趨真實應用的動態表格生成。</a>
+<p id="ba70f52b-85ca-4abf-bfea-3798be8d0177" class=""><mark class="highlight-red_background">[課堂練習原始碼]： </mark><a  target="_blank" href="https://github.com/jy3736/webapp-2022s/tree/main/src/week11">https://github.com/jy3736/webapp-2022s/tree/main/src/week11</a></p><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="d547d257-dac2-48fc-8b91-a88392e2bc7c" class="block-color-teal_background">[課堂練習 1]： 用 JavaScript 文字樣板(Text Template)建立『動態』表格。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=f2e49867-bed6-4872-bd84-4427e27b119a" id="soundon"></iframe></div></figure><h3 id="3d272d0f-327e-4f5a-958e-8311586579cd" class="block-color-yellow">輸出結果：</h3><figure id="f3e20785-fd91-4db2-a508-ce2ec30b77ad" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled.png"><img style="width:288px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled.png"/></a></figure><h3 id="10ae7a84-d69b-4c17-bbcd-a7ca56e23ac2" class="block-color-yellow">範例程式 (HTML/CSS)</h3><div id="f99465ac-4714-4a31-a1aa-08cdab5a1372" class="column-list"><div id="758e7391-bd34-417b-8605-ef327c58391f" style="width:50%" class="column"><figure id="1a572753-1cde-47ce-9c3e-d165963434d8" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%201.png"><img style="width:336px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%201.png"/></a></figure></div><div id="2a9c490d-005e-407b-bf37-e526d17a525f" style="width:50%" class="column"><figure id="ae82c5d6-7123-47b8-9440-2948c2d7f333" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%202.png"><img style="width:1120px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%202.png"/></a></figure></div></div><h3 id="7b804fe8-fc11-494a-8620-78cc5b476f64" class="block-color-yellow">範例程式 (External JavaScript)</h3><figure id="60f7651c-5ed6-48f2-86c0-81ad56b39ec5" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%203.png"><img style="width:480px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%203.png"/></a></figure><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="21aa1e8f-6daf-4629-807e-87ff1581b928" class="block-color-teal_background">[課堂練習 2]： 將總體『陣列(Array)』變數用作函數間資料傳輸的媒介。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=3bd75374-0212-4453-877a-39986d6051bb" id="soundon"></iframe></div></figure><h3 id="9399dac5-0fae-456d-b7d2-d2e2615e2c69" class="block-color-yellow">輸出結果：</h3><figure id="cdb2c0f5-76f8-4d11-aa4a-ac8b367ae3df" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%204.png"><img style="width:336px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%204.png"/></a></figure><h3 id="8d221e1a-d7d6-4dd3-9263-b0a98fe11d6d" class="block-color-yellow">範例程式 (HTML/CSS)</h3><div id="89c88725-aa86-467c-93db-0cbc0ac8698d" class="column-list"><div id="3471d431-8228-4d7a-be0d-e5890a51e95f" style="width:50%" class="column"><figure id="f0c43c46-a9cf-416f-9aad-1a7855f30b52" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%205.png"><img style="width:1447px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%205.png"/></a></figure></div><div id="791d4e91-7b48-438b-8724-1de83b201d27" style="width:50%" class="column"><figure id="515c2185-d81f-4efc-8d71-238b7953a7ca" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%206.png"><img style="width:1432px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%206.png"/></a></figure></div></div><h3 id="57ec57ea-7455-4cb0-954c-b195c7b4bb41" class="block-color-yellow">範例程式 (External JavaScript)</h3><figure id="9b0603e8-a40a-4e7d-b681-ceb6f604632f" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%207.png"><img style="width:432px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%207.png"/></a></figure><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="75ab48a2-7104-48f6-86e1-4f10eaef73f5" class="block-color-blue_background">[課堂作業 1]：漸趨真實應用的動態表格生成。</h3><div><iframe src="https://player.soundon.fm/embed/?podcast=3fe47951-cc80-4088-a60a-3a55173a4893&episode=b9c675a7-719a-48b7-9533-e9e64f69c4b9" id="soundon"></iframe></div></figure><ul id="e6625d88-93d3-4b2d-8a4d-21808a680ea3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">用<code>課堂練習2</code>的總體『陣列(Array)』，模擬由函數<code>genData(...)</code>讀入外部的感測器資料。</span></li></ul><ul id="25149609-2a0b-4ae9-a79d-61a917daefd3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">重新設計<code>課堂練習1</code>的<code>toHTML(...)</code>函數，用文字樣版將陣列中的資料轉成HTML表格。</span></li></ul><h3 id="e41a910f-51fa-459c-a906-d276bd5d1aa4" class="block-color-yellow">輸出結果：</h3><figure id="4ea00c08-fdfa-4a0e-a2fc-bdb30c9e3641" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%208.png"><img style="width:288px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%208.png"/></a></figure><h3 id="5fa389ce-0103-4fc4-8ada-cbf376129913" class="block-color-yellow">HTML/CSS 程式樣板：</h3><div id="b691c140-49ff-47a3-8ec7-0e3e42052b21" class="column-list"><div id="b0221537-ba57-4d4e-b4d1-48dc46059bad" style="width:50%" class="column"><figure id="367c8ee9-397a-4d92-a026-90de65097895" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%209.png"><img style="width:1444px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%209.png"/></a></figure></div><div id="d0846ad4-82e9-4f04-8934-7e5c9278acb7" style="width:50%" class="column"><figure id="d9ca4531-c925-4088-94d8-e783a4183a01" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%2010.png"><img style="width:1494px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%2010.png"/></a></figure></div></div><h3 id="7610c630-7ef0-4de0-92d3-48c203780edf" class="block-color-yellow">不完整的範例程式 (External JavaScript)</h3><figure id="895ebd8f-22d6-4890-8bf5-1a9f114c869e" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%2011.png"><img style="width:480px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/Untitled%2011.png"/></a></figure><p id="b5d96a83-5508-4b27-9e6f-46d89ebfb589" class="">
+</p><p id="3b9e813a-34d8-4a00-a193-5008301b83ac" class="">
+</p><figure id="d6fa3e64-75f8-4cf6-889b-2cf577bb1d41" class="image"><a href="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/%E5%9C%96%E7%89%873.png"><img style="width:1322px" src="Web%20%E5%85%A5%E9%96%80%20-%20JavaScript%20Tutorial%202%20f3e20785fd914db2a508ce2ec30b77ad/%E5%9C%96%E7%89%873.png"/></a></figure></div></article>
+<script>hljs.highlightAll();</script>
+</body></html>
