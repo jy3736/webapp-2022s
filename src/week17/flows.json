@@ -1,0 +1,1538 @@
+[
+    {
+        "id": "43367159c9ed951c",
+        "type": "tab",
+        "label": "lab06",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6f4f90c4802d5c73",
+        "type": "tab",
+        "label": "lab07",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0698ebc603a66cd2",
+        "type": "tab",
+        "label": "lab08",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4a246647a065aab5",
+        "type": "tab",
+        "label": "lab08a",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ce1d3d032851a0bf",
+        "type": "tab",
+        "label": "lab09",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a5baafcd88c06d6a",
+        "type": "tab",
+        "label": "lab10",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "145ee47a055072b3",
+        "type": "tab",
+        "label": "lab11",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "df34aeebfee60765",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "407a01e4.6b637",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "61de5090.0f5d9",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "392880f0a6dddbdb",
+        "type": "ui_tab",
+        "name": "Coffee Roaster 1",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1d81d06da5f37373",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "887476b0331a94f3",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "392880f0a6dddbdb",
+        "order": 1,
+        "disp": true,
+        "width": 19,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "839fa685203f28ec",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "536ea54538e8bc88",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "536ea54538e8bc88",
+        "type": "ui_tab",
+        "name": "Coffee Roaster 2",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "bb63ce21a929bc83",
+        "type": "ui_tab",
+        "name": "Roll Dice",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "78d7c5f9b8140407",
+        "type": "ui_group",
+        "name": "dice",
+        "tab": "bb63ce21a929bc83",
+        "order": 1,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3a133f3870339ba0",
+        "type": "ui_spacer",
+        "z": "145ee47a055072b3",
+        "name": "spacer",
+        "group": "78d7c5f9b8140407",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b3ae066a48dc023b",
+        "type": "ui_spacer",
+        "z": "145ee47a055072b3",
+        "name": "spacer",
+        "group": "78d7c5f9b8140407",
+        "order": 4,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b34dd1af.4cb23",
+        "type": "template",
+        "z": "43367159c9ed951c",
+        "name": "Mustache Query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head></head>\n    <body>\n        <h1>Name :{{req.query.name}}</h1>\n        <h1>ID   : {{req.query.id}}</h1>\n    </body>\n</html>",
+        "x": 380,
+        "y": 500,
+        "wires": [
+            [
+                "b828f6a6.47d708"
+            ]
+        ]
+    },
+    {
+        "id": "1052941d.efad6c",
+        "type": "http in",
+        "z": "43367159c9ed951c",
+        "name": "",
+        "url": "/lab06",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "b34dd1af.4cb23",
+                "139b33029333cc3d"
+            ]
+        ]
+    },
+    {
+        "id": "b828f6a6.47d708",
+        "type": "http response",
+        "z": "43367159c9ed951c",
+        "name": "",
+        "x": 570,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "418cc386b7c15545",
+        "type": "debug",
+        "z": "43367159c9ed951c",
+        "name": "name",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 570,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "139b33029333cc3d",
+        "type": "function",
+        "z": "43367159c9ed951c",
+        "name": "JS Query",
+        "func": "let ch1 = {\"payload\":msg.payload[\"name\"]};\nlet ch2 = {\"payload\":msg.payload[\"id\"]};\n\nreturn [ch1,ch2];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 620,
+        "wires": [
+            [
+                "418cc386b7c15545"
+            ],
+            [
+                "9ebf79f31907c0e3"
+            ]
+        ]
+    },
+    {
+        "id": "9ebf79f31907c0e3",
+        "type": "debug",
+        "z": "43367159c9ed951c",
+        "name": "id",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 570,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a35ff7eb4767648d",
+        "type": "comment",
+        "z": "43367159c9ed951c",
+        "name": "Test Examples",
+        "info": "http://127.0.0.1:1880/lab06?name=Yang&id=007\n",
+        "x": 140,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ce53954b.31ac68",
+        "type": "http response",
+        "z": "6f4f90c4802d5c73",
+        "name": "",
+        "x": 590,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "288a7c0.fd77584",
+        "type": "template",
+        "z": "6f4f90c4802d5c73",
+        "name": "Mustache Query",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head></head>\n    <body>\n        <h1>Hello {{req.params.name}}!</h1>\n    </body>\n</html>",
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "ce53954b.31ac68"
+            ]
+        ]
+    },
+    {
+        "id": "7665c67d.899a38",
+        "type": "http in",
+        "z": "6f4f90c4802d5c73",
+        "name": "",
+        "url": "/lab07/:name",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "288a7c0.fd77584",
+                "d08c36ba1a577c04"
+            ]
+        ]
+    },
+    {
+        "id": "7b491df234d8d644",
+        "type": "debug",
+        "z": "6f4f90c4802d5c73",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "req.params",
+        "statusType": "auto",
+        "x": 610,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d08c36ba1a577c04",
+        "type": "function",
+        "z": "6f4f90c4802d5c73",
+        "name": "JS Query",
+        "func": "msg.payload = msg.req.params[\"name\"];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "7b491df234d8d644"
+            ]
+        ]
+    },
+    {
+        "id": "6820ec5594c7e232",
+        "type": "comment",
+        "z": "6f4f90c4802d5c73",
+        "name": "Test Examples",
+        "info": "http://127.0.0.1:1880/lab07/Young\nhttp://127.0.0.1:1880/lab07/Nicole",
+        "x": 160,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2c6873d2.992abc",
+        "type": "mqtt out",
+        "z": "0698ebc603a66cd2",
+        "name": "",
+        "topic": "roaster1/t1",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "407a01e4.6b637",
+        "x": 590,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d9beed59.94155",
+        "type": "inject",
+        "z": "0698ebc603a66cd2",
+        "name": "Rand(0,250)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "$floor($random()*2500)/10",
+        "payloadType": "jsonata",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "2c6873d2.992abc",
+                "6c494762b7fa9175"
+            ]
+        ]
+    },
+    {
+        "id": "be80048.8f232f8",
+        "type": "mqtt in",
+        "z": "0698ebc603a66cd2",
+        "name": "",
+        "topic": "roaster1/t1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "407a01e4.6b637",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "8640b8ff.f82ff8"
+            ]
+        ]
+    },
+    {
+        "id": "8640b8ff.f82ff8",
+        "type": "debug",
+        "z": "0698ebc603a66cd2",
+        "name": "T1",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 570,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2775d90f811d0f95",
+        "type": "comment",
+        "z": "0698ebc603a66cd2",
+        "name": "MQTT Server : broker.emqx.io",
+        "info": "",
+        "x": 240,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7f0cca194cb6fb8b",
+        "type": "mqtt out",
+        "z": "0698ebc603a66cd2",
+        "name": "",
+        "topic": "roaster1/t2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "407a01e4.6b637",
+        "x": 590,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6c494762b7fa9175",
+        "type": "function",
+        "z": "0698ebc603a66cd2",
+        "name": "- Rand(0,20)",
+        "func": "msg.payload = (msg.payload - Math.random()*20).toFixed(1);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "7f0cca194cb6fb8b"
+            ]
+        ]
+    },
+    {
+        "id": "eb3e0a90e3dce45a",
+        "type": "mqtt in",
+        "z": "0698ebc603a66cd2",
+        "name": "",
+        "topic": "roaster1/t2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "407a01e4.6b637",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 400,
+        "wires": [
+            [
+                "b731cc2ae384ebd4"
+            ]
+        ]
+    },
+    {
+        "id": "b731cc2ae384ebd4",
+        "type": "debug",
+        "z": "0698ebc603a66cd2",
+        "name": "T2",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 570,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "960a655bed3691f1",
+        "type": "aedes broker",
+        "z": "0698ebc603a66cd2",
+        "d": true,
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 530,
+        "y": 60,
+        "wires": [
+            [
+                "fae90e948e29e6b9"
+            ],
+            [
+                "8954f20fdcb9ac25"
+            ]
+        ]
+    },
+    {
+        "id": "fae90e948e29e6b9",
+        "type": "debug",
+        "z": "0698ebc603a66cd2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 770,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8954f20fdcb9ac25",
+        "type": "debug",
+        "z": "0698ebc603a66cd2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 770,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "22f822dbbdb11ce3",
+        "type": "mqtt in",
+        "z": "4a246647a065aab5",
+        "name": "",
+        "topic": "roaster1/t1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "407a01e4.6b637",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "082e3196c2027ddc"
+            ]
+        ]
+    },
+    {
+        "id": "d6aca0cb37d49dae",
+        "type": "mqtt in",
+        "z": "4a246647a065aab5",
+        "name": "",
+        "topic": "roaster1/t2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "407a01e4.6b637",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "59a0f8e2964ca29a"
+            ]
+        ]
+    },
+    {
+        "id": "082e3196c2027ddc",
+        "type": "debug",
+        "z": "4a246647a065aab5",
+        "name": "T1",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 510,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "59a0f8e2964ca29a",
+        "type": "debug",
+        "z": "4a246647a065aab5",
+        "name": "T2",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 510,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8024cb4.98c5238",
+        "type": "mqtt in",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "topic": "roaster2/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "61de5090.0f5d9",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "b5098b7f.2361d8"
+            ]
+        ]
+    },
+    {
+        "id": "15d727dd.33e808",
+        "type": "debug",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2aed678c.3de738",
+        "type": "mqtt out",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "topic": "roaster2/t",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "61de5090.0f5d9",
+        "x": 400,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3b613a69.a247c6",
+        "type": "inject",
+        "z": "ce1d3d032851a0bf",
+        "name": "Rand(Json())",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "{\"t1\" : $floor($random()*200), \"t2\" : $floor($random()*200)}",
+        "payloadType": "jsonata",
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "2aed678c.3de738"
+            ]
+        ]
+    },
+    {
+        "id": "b5098b7f.2361d8",
+        "type": "json",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "pretty": false,
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "15d727dd.33e808"
+            ]
+        ]
+    },
+    {
+        "id": "9b2a5d2f1237b629",
+        "type": "mqtt in",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "topic": "roaster2/t",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "61de5090.0f5d9",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "756a13a559997d33"
+            ]
+        ]
+    },
+    {
+        "id": "59f5cfba331e2ae9",
+        "type": "debug",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 730,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "756a13a559997d33",
+        "type": "json",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "pretty": false,
+        "x": 570,
+        "y": 340,
+        "wires": [
+            [
+                "59f5cfba331e2ae9"
+            ]
+        ]
+    },
+    {
+        "id": "05d49590c9a2ae4f",
+        "type": "mqtt in",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "topic": "roaster1/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "61de5090.0f5d9",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "aadbf9a02fea52c4",
+                "8b0d5d49bcee1b1b"
+            ]
+        ]
+    },
+    {
+        "id": "aadbf9a02fea52c4",
+        "type": "debug",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 660,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8b0d5d49bcee1b1b",
+        "type": "debug",
+        "z": "ce1d3d032851a0bf",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c28d7c24eb469a48",
+        "type": "ui_chart",
+        "z": "a5baafcd88c06d6a",
+        "name": "T1",
+        "group": "887476b0331a94f3",
+        "order": 1,
+        "width": 8,
+        "height": 5,
+        "label": "T1",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 450,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4b3b0e32e4b9578",
+        "type": "mqtt in",
+        "z": "a5baafcd88c06d6a",
+        "name": "",
+        "topic": "roaster1/t1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "407a01e4.6b637",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "7bf639224ad7a6cd",
+                "c28d7c24eb469a48",
+                "b76fe9ad72f0fbf9"
+            ]
+        ]
+    },
+    {
+        "id": "c299ac762ea26585",
+        "type": "mqtt in",
+        "z": "a5baafcd88c06d6a",
+        "name": "",
+        "topic": "roaster1/t2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "407a01e4.6b637",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 380,
+        "wires": [
+            [
+                "bae63a338c5ec8ca",
+                "1bc72989ce748d0f",
+                "b76fe9ad72f0fbf9"
+            ]
+        ]
+    },
+    {
+        "id": "7bf639224ad7a6cd",
+        "type": "debug",
+        "z": "a5baafcd88c06d6a",
+        "name": "T1",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 450,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "bae63a338c5ec8ca",
+        "type": "debug",
+        "z": "a5baafcd88c06d6a",
+        "name": "T2",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 450,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1bc72989ce748d0f",
+        "type": "ui_chart",
+        "z": "a5baafcd88c06d6a",
+        "name": "T2",
+        "group": "887476b0331a94f3",
+        "order": 3,
+        "width": 8,
+        "height": 5,
+        "label": "T2",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ef0612",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 450,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "04b367bc139f995b",
+        "type": "ui_template",
+        "z": "a5baafcd88c06d6a",
+        "group": "839fa685203f28ec",
+        "name": "",
+        "order": 3,
+        "width": 7,
+        "height": 3,
+        "format": "<pre style=\"font-size:xx-large\">\n    T1 : {{msg.payload['t1']}} , T2 : {{msg.payload['t2']}} \n</pre>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 540,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6be3b045f454c6bb",
+        "type": "mqtt in",
+        "z": "a5baafcd88c06d6a",
+        "name": "",
+        "topic": "roaster2/t",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "61de5090.0f5d9",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 140,
+        "y": 580,
+        "wires": [
+            [
+                "b780c2f6369e83e5"
+            ]
+        ]
+    },
+    {
+        "id": "b780c2f6369e83e5",
+        "type": "json",
+        "z": "a5baafcd88c06d6a",
+        "name": "",
+        "pretty": false,
+        "x": 310,
+        "y": 580,
+        "wires": [
+            [
+                "04b367bc139f995b",
+                "ac543e02569cefe2",
+                "3003cafd550259c8"
+            ]
+        ]
+    },
+    {
+        "id": "ac543e02569cefe2",
+        "type": "ui_gauge",
+        "z": "a5baafcd88c06d6a",
+        "name": "",
+        "group": "839fa685203f28ec",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "T1",
+        "label": "units",
+        "format": "{{msg.payload[\"t1\"]}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 490,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "3003cafd550259c8",
+        "type": "ui_gauge",
+        "z": "a5baafcd88c06d6a",
+        "name": "",
+        "group": "839fa685203f28ec",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "T2",
+        "label": "units",
+        "format": "{{msg.payload[\"t2\"]}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 490,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "b76fe9ad72f0fbf9",
+        "type": "ui_chart",
+        "z": "a5baafcd88c06d6a",
+        "name": "T",
+        "group": "887476b0331a94f3",
+        "order": 2,
+        "width": 11,
+        "height": 10,
+        "label": "T1  and  T2",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#f00018",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 690,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "852ed5a25789741d",
+        "type": "ui_button",
+        "z": "145ee47a055072b3",
+        "name": "",
+        "group": "78d7c5f9b8140407",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Roll",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "8280de3e177038b4"
+            ]
+        ]
+    },
+    {
+        "id": "8280de3e177038b4",
+        "type": "function",
+        "z": "145ee47a055072b3",
+        "name": "Loop",
+        "func": "function delay(delayInms) {\n  return new Promise(resolve => {\n    setTimeout(() => {\n      resolve(2);\n    }, delayInms);\n  });\n}\n\nasync function dice() {\n    for(let i=0; i<10; i++) {\n        let delayres = await delay(150);\n        msg.payload = Math.floor(Math.random()*100+1);\n        node.send(msg);\n    }\n}\n\ndice();\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 380,
+        "wires": [
+            [
+                "f99453c96c327335"
+            ]
+        ]
+    },
+    {
+        "id": "f99453c96c327335",
+        "type": "ui_template",
+        "z": "145ee47a055072b3",
+        "group": "78d7c5f9b8140407",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n#msg {\n    font-size:xxx-large;\n    text-align:center;\n    height: 100px;\n    ;\n}\n</style>\n\n<div id=\"msg\">{{msg.payload}}</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 740,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f557f3318fbeb8b0",
+        "type": "http request",
+        "z": "df34aeebfee60765",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-A0021-001?Authorization=rdec-key-123-45678-011121314",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "1f039e499f23dfd1"
+            ]
+        ]
+    },
+    {
+        "id": "1f039e499f23dfd1",
+        "type": "json",
+        "z": "df34aeebfee60765",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "f5c4d3beeb82d758",
+                "6b61b83b8c948e85"
+            ]
+        ]
+    },
+    {
+        "id": "f5c4d3beeb82d758",
+        "type": "debug",
+        "z": "df34aeebfee60765",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3cc56667b6a1d602",
+        "type": "inject",
+        "z": "df34aeebfee60765",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "f557f3318fbeb8b0"
+            ]
+        ]
+    },
+    {
+        "id": "6b61b83b8c948e85",
+        "type": "function",
+        "z": "df34aeebfee60765",
+        "name": "",
+        "func": "msg.payload = msg.payload[\"records\"][\"location\"][\"0\"];\nvar msg1 = {};\nvar msg2 = {};\nmsg1.payload = msg.payload[\"locationName\"];\nmsg2.payload = msg.payload[\"validTime\"][\"0\"][\"weatherElement\"][\"1\"][\"elementValue\"];\n\nreturn [msg1,msg2];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [
+                "31360383d0e5aca5"
+            ],
+            [
+                "437b25c22eb9eef6"
+            ]
+        ]
+    },
+    {
+        "id": "31360383d0e5aca5",
+        "type": "debug",
+        "z": "df34aeebfee60765",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 730,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "437b25c22eb9eef6",
+        "type": "debug",
+        "z": "df34aeebfee60765",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 730,
+        "y": 360,
+        "wires": []
+    }
+]
