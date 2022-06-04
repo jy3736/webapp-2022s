@@ -1,0 +1,956 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>期末測驗 (動態網頁設計) - 考題說明</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></head><body><article id="1b97de19-6bc3-46fe-b37c-0d034046375a" class="page sans"><header><img class="page-cover-image" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/3.png" style="object-position:center 38.55%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang-tr-wb.png"/></div><h1 class="page-title">期末測驗 (動態網頁設計) - 考題說明</h1><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></header><div class="page-body"><h2 id="91483447-711b-4a8e-84cf-8fd88ae161ba" class="block-color-purple_background">期末測驗考題說明，配分以實際考試狀況再行調整</h2><ul id="a6e34ee5-c3da-4d83-8682-b2cf7eb7ebfc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">第17周自動批閱考題：1 ~ 10 每題『15分』，共計『150分』。</span></li></ul><ul id="d4d691a0-16a0-4509-955e-50eb79d1c487" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">超過『100分』的部分計入平時成績。</span></li></ul><ul id="c3e185fe-7eec-4f08-8669-ec963a99f3d3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">第18周 Node-RED 專案： 額外加分題『50分』，你可選擇要不要做，繳交及展示日期(6/14)。</span></li></ul><figure class="block-color-blue callout" style="white-space:pre-wrap;display:flex" id="31fd74b4-7920-4fa4-9908-09b86b66f76e"><div style="font-size:1.5em"><img class="icon" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang02%201.png"/></div><div style="width:100%">目前在設計3間房間的感測器，感測器會採用 MQTT 方式送出即時資料，可單以HTML/CSS方式設計這個專案，也可以搭配 Node-RED Dashboard 強化你的設計。<p id="126472e9-52a4-4a30-b7b2-78d8bcc6a7df" class=""><strong>感測器形態：</strong><div class="indented"><p id="15b92c3f-0ce6-4b98-9de9-4771d5b77398" class="">1. 溫濕度感測器(數字)。</p><p id="8fd89084-465b-426c-9e86-fd7947fab5f1" class="">2. 門、窗感測器(0/1)。</p><p id="356e06cd-3ad3-4110-b333-1d1ea62cf814" class="">3. 火災感測器(0/1)。</p><p id="5ab4aea8-0723-45ce-a81c-666c49eb8417" class="">4. 烘豆機：豆子溫度(數字)、鍋爐空氣溫度(數字)、控制介面。</p></div></p><p id="6cc9c96e-f98d-4ea9-854d-473cf7c70131" class=""><strong>評分標準：</strong><div class="indented"><p id="88c917c8-cb38-43ac-8f7e-364abfbe3c13" class="">1. 必須要把所有的感測器都用上。</p><p id="2e4e8443-bac2-43e1-880c-fb38ccecb6c9" class="">2. 使用者介面的便利性、實用性、美觀設計，是我們評分的考量。</p><p id="9a65328e-9310-42dd-8b7e-94c31b785733" class="">3. 專案的展示時間為第18週(6/14)。</p><p id="503414ba-02c1-4c8d-ae94-fbfc783470a5" class="">4. 專案的 Node-RED 樣板會在17週(6/7)考試當天公布。</p></div></p></div></figure><h2 id="5e48255f-3f0b-4ba1-969e-d644b43c9478" class="block-color-purple_background">期中考題設計</h2><div id="52c109eb-4906-4597-890f-3e65fb4a7a9b" class="column-list"><div id="f8c669d5-628a-4e2b-80a4-b572f1fbecc1" style="width:25%" class="column"><figure id="31e0326c-4414-4f69-95c1-cbace442586f" class="image"><a href="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang02.png"><img style="width:144px" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang02.png"/></a></figure></div><div id="d91bc46f-05de-4eb8-b6e5-dbda96a2b6fb" style="width:75%" class="column"><div id="yang-id-001" class="yang-class-001">目 錄：</div>
+<a href="#8094e482-04e5-4086-9834-aa16a22277db" class="yang-class-002">[問題 1]：使用 console.log(…) 和南臺科技大學 Say Hello N 次。</a>
+<a href="#5d22dc4f-cdcf-4ee0-abba-e5c023871e92" class="yang-class-002">[問題 2]：設計一函數加總 3 個隨機數字。</a>
+<a href="#693d1706-2a60-4a2d-9473-01e0e0a7ba50" class="yang-class-002">[問題 3]：設計一函數加總 N 個隨機數字。</a>
+<a href="#cdcdaa34-5b47-45fb-8ea4-b3d7f30048c8" class="yang-class-002">[問題 4]：將一維陣列內容依指定列數輸出，適度調整過於冗長的輸出資料。</a>
+<a href="#764aa076-eb84-43bb-bf69-7561bab3f36a" class="yang-class-002">[問題 5]：期中考後未經修改的 JavaScript 作業問題。</a>
+<a href="#1310429d-f55e-4a7c-8d31-5ecb02519d92" class="yang-class-002">[問題 6]：期中考後未經修改的 JavaScript 作業問題。</a>
+<a href="#b4bdeb61-9f84-4004-bc91-0ad93d4e65cc" class="yang-class-002">[問題 7]：期中考後未經修改的 JavaScript 作業問題。</a>
+<a href="#dca5b7ad-f1b8-4f59-9da9-eaea8b331fdc" class="yang-class-002">[問題 8]：設計一函數回傳陣列中 N 個隨機數字的『中間值』。</a>
+<a href="#95eb0808-397d-41c6-8d52-9e69bcd23d1b" class="yang-class-002">[問題 9]：設計一函數統計 1 ~ 6 每個數字出現的次數。</a>
+<a href="#e1cfb331-8606-4bd0-aac2-ea0921fe7418" class="yang-class-002">[問題 10]：將隨機輸入的 N 筆資料套用HTML表格樣板輸出。</a>
+</div></div><p id="1548e810-8cda-4613-a370-d2a16867cc23" class="">
+</p><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="8094e482-04e5-4086-9834-aa16a22277db" class="block-color-teal_background">[問題 1]：使用 console.log(…) 和南臺科技大學 Say Hello N 次。</h3><ul id="0b3f83b6-d7ba-4430-86c6-8592600e3aa8" class="bulleted-list"><li style="list-style-type:disc">請依照題目說明，在『指定段落』完成欠缺的程式碼。</li></ul><ul id="dfdd4e18-f5e3-4e90-a3e4-cd3fc1e56a46" class="bulleted-list"><li style="list-style-type:disc"><code>N</code> 在 PowerShell 執行時，用『管線(pipe) <code>|</code>』的方式給資料，請參考簡易測試。</li></ul><h3 id="75e522fc-5d87-46ee-939a-f53e3d66a27c" class=""><strong>簡易測試</strong></h3><pre id="9216f352-fb14-4d82-993e-2c192a879a72" class="code code-wrap"><code>prob01&gt; 2 | node .\main.js
+Hello STUST!
+Hello STUST!
+
+prob01&gt; 5 | node .\main.js
+Hello STUST!
+Hello STUST!
+Hello STUST!
+Hello STUST!
+Hello STUST!
+
+prob01&gt; 1 | node .\main.js
+Hello STUST!</code></pre><h3 id="1f3b05e6-1e05-49df-a398-3ef22b7ef158" class=""><strong>自動批閱測試</strong></h3><pre id="cdbde37e-5324-4b58-bdf2-84195ac44a97" class="code code-wrap"><code>prob01&gt; .\test.ps1
+
+********************************************
+*         Dynamic Web Programming          *
+*  Exercises / Homework Automatic Grading  *
+********************************************
+
+Test Data : 4
+Test Data : 4
+Test Data : 9
+Test Data : 1
+Test Data : 5
+Test Data : 10
+Test Data : 10
+Test Data : 2
+Test Data : 5
+Test Data : 7
+
+測試通過!
+
+Hello STUST!
+Hello STUST!
+Hello STUST!
+Hello STUST!
+Hello STUST!
+Hello STUST!
+Hello STUST!</code></pre><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="5d22dc4f-cdcf-4ee0-abba-e5c023871e92" class="block-color-teal_background">[問題 2]：設計一函數加總 3 個隨機數字。</h3><ul id="30e19eec-7f80-493b-ad2e-b052947cabb1" class="bulleted-list"><li style="list-style-type:disc">請依照題目說明，在『指定段落』完成欠缺的程式碼。</li></ul><ul id="3183e619-064e-4d44-91f9-eb52d63b24c9" class="bulleted-list"><li style="list-style-type:disc">設計一函數加總用『管線(pipe) <code>|</code>』輸入的 <code>3</code> 個隨機數字，請參考簡易測試。</li></ul><ul id="4d1f38ac-f42e-4d2d-b3c3-3170103a5c98" class="bulleted-list"><li style="list-style-type:disc">參考 Week 13 作業 <code>hw02</code>：『數字/文字(Number/Text)傻傻分不清楚。』</li></ul><ul id="65f7be00-f1fe-4205-af59-8f71f38bf523" class="bulleted-list"><li style="list-style-type:disc">建議使用 JavaScript <code>Number(...)</code> 函數將參數轉成數字型態。</li></ul><h3 id="c3034e08-8455-4417-b948-f3099e5ada8e" class=""><strong>簡易測試</strong></h3><pre id="738c0f24-58b1-4a80-8255-0b445e65f6fe" class="code code-wrap"><code>prob02&gt; 1,2,3 | node .\main.js
+6
+
+prob02&gt; 11,22,33 | node .\main.js
+66
+
+prob02&gt; 5,6,7 | node .\main.js
+18</code></pre><h3 id="181a0bf7-a071-48bf-98cf-340a775240a6" class=""><strong>自動批閱測試</strong></h3><pre id="1a345a8d-4b80-4aab-9501-37f24ac23e5f" class="code code-wrap"><code>prob02&gt; .\test.ps1
+
+********************************************
+*         Dynamic Web Programming          *
+*  Exercises / Homework Automatic Grading  *
+********************************************
+
+Test Data : 47 66 36
+Test Data : 25 30 30
+Test Data : 52 93 20
+Test Data : 77 98 47
+Test Data : 58 8 67
+Test Data : 47 45 56
+Test Data : 26 10 8
+Test Data : 61 9 67
+Test Data : 54 61 35
+Test Data : 72 100 70
+
+測試通過!
+
+242</code></pre><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="693d1706-2a60-4a2d-9473-01e0e0a7ba50" class="block-color-teal_background">[問題 3]：設計一函數加總 N 個隨機數字。</h3><ul id="9e2f067f-b145-4c26-8e8c-1e19692f48e2" class="bulleted-list"><li style="list-style-type:disc">請依照題目說明，在『指定段落』完成欠缺的程式碼。</li></ul><ul id="bedc014b-49ed-4c7a-ba96-cdba6935a0fa" class="bulleted-list"><li style="list-style-type:disc">設計一函數加總<code>N</code> 個隨機數字的一維陣列，請參考簡易測試。</li></ul><ul id="5ab26786-d702-4e30-87cf-316831ba46d3" class="bulleted-list"><li style="list-style-type:disc">解題建議：<ul id="df50b8fe-5e20-4d9d-9428-3337327baee6" class="bulleted-list"><li style="list-style-type:circle">參數 <code>arr</code> 是一個陣列，你可藉由 <code>arr.length</code> 取得陣列長度，再依序取出所有資料逐一加總。</li></ul><ul id="fa0b143c-2b5b-4985-a136-ab0dec8160a3" class="bulleted-list"><li style="list-style-type:circle">記得 ~ 使用 <code>Number(...)</code> 將陣列中的資料轉成數字型態。</li></ul></li></ul><h3 id="fe948252-04d9-4321-84b9-94b15f2bca16" class=""><strong>簡易測試</strong></h3><pre id="3b9d5734-d4b2-4148-b66b-830f4124e168" class="code code-wrap"><code>prob03&gt; 1..10 | node .\main.js
+55
+
+prob03&gt; 11,22,33,44,55,66,77,88,99 | node .\main.js
+495
+
+prob03&gt; 1..100 | node .\main.js
+5050</code></pre><h3 id="1e35a844-88d3-4ba8-9995-2d7d7a5a65f6" class=""><strong>自動批閱測試</strong></h3><pre id="8b46cd9c-4080-4192-9b3c-aeb308098f3a" class="code code-wrap"><code>prob03&gt; .\test.ps1
+
+********************************************
+*         Dynamic Web Programming          *
+*  Exercises / Homework Automatic Grading  *
+********************************************
+
+Test Data : 26 3 85 13 38 57 11 26 37 79 21 70
+Test Data : 38 72 7 1 64 36 80 51 33 14 13 95 23 87 59
+Test Data : 22 39 45 36 10 3
+Test Data : 39 43 30 30 13 56 72 8 9 19 40 73
+Test Data : 38 43 67 95 77 71
+Test Data : 88 96 95 54 55 85 48 12 82 86 39 38 67 71 48
+Test Data : 54 38 87 90 6 1 8
+Test Data : 93 64 45 11 93 52 76 16 82 19 98 34 60 82 69
+Test Data : 70 72 72 81 87 36 10 63 33 11 56 17
+Test Data : 84 1 28 28 9 18
+
+測試通過!
+
+168</code></pre><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="cdcdaa34-5b47-45fb-8ea4-b3d7f30048c8" class="block-color-teal_background">[問題 4]：將一維陣列內容依指定列數輸出，適度調整過於冗長的輸出資料。</h3><ul id="5c96dbdd-c881-4f36-80f8-65a9b66c3eb2" class="bulleted-list"><li style="list-style-type:disc">請依照題目說明，在『指定段落』完成欠缺的程式碼。</li></ul><ul id="0bfd2e86-036c-4de9-bd0a-b3ee7c79c0ed" class="bulleted-list"><li style="list-style-type:disc">設計一函數將一維陣列內容依指定列(column)數輸出。<ul id="7f9d4455-2bec-40d4-9ee5-36df908fa5ee" class="bulleted-list"><li style="list-style-type:circle">參數 <code>arr</code> 是一維陣列，可藉由 <code>arr.length</code> 取得陣列長度。</li></ul><ul id="9e4b7076-6d10-4f00-b3bf-83d7fa3cd413" class="bulleted-list"><li style="list-style-type:circle">參數 <code>col</code> 指定每一行最多列數。</li></ul></li></ul><ul id="595d0df2-85e3-4d65-9795-1343d64c8d0f" class="bulleted-list"><li style="list-style-type:disc">同一行資料至少由一個空格隔開，不需刻意對齊寬度。</li></ul><ul id="b28b4022-4eb4-4b35-80a3-d1f1e16676fb" class="bulleted-list"><li style="list-style-type:disc">使用 <code>process.stdout.write(...)</code> 取代 <code>console.log(...)</code>，方便控制輸出時要不要換行。</li></ul><h3 id="9cf17a2d-bc1d-4da8-9ff7-a15d408ec52a" class=""><strong>簡易測試</strong></h3><pre id="0f152de8-2573-45b0-a511-952648729fa1" class="code code-wrap"><code>prob04&gt; 1..100 | Get-Random -Count 30 | node .\main.js
+48 36 58 42 95 87 44 47
+51 49 63 22 71 80 98 55
+40 1 25 62 38 57 64 27
+72 32 4 91 90 46
+
+prob04&gt; 1..100 | Get-Random -Count 30 | node .\main.js
+82 9 24 87 58 93 41 98
+99 43 60 88 61 6 25 35
+39 40 56 32 36 59 13 14
+16 92 67 27 33 50
+
+prob04&gt; 1..100 | Get-Random -Count 30 | node .\main.js
+97 89 85 95 18 52 98 81
+35 23 92 59 69 17 34 45
+76 56 49 2 38 73 36 42
+87 60 67 96 7 84</code></pre><h3 id="f57c67f7-f203-406d-a453-c76627329d5e" class=""><strong>自動批閱測試</strong></h3><pre id="28d907f1-59a5-4691-88ce-4a0c81cf1f68" class="code code-wrap"><code>prob04&gt; .\test.ps1
+
+********************************************
+*         Dynamic Web Programming          *
+*  Exercises / Homework Automatic Grading  *
+********************************************
+
+Test Data : 75 92 64 19 85 19 89 61 92 88 68 68 14 13 8 85 93 80 91 27 49 26 73 95 42 13 99
+Test Data : 52 97 14 87 52 19 88 88 90 79 96 80 69 2 80 5 97 55 100 44 23 38 36 9 2 47 61
+Test Data : 69 13 1 86 32 4 87 51 86 5 20 15 16 58 73 62 2 6 17 78 66 2 19 8 73 27 5 35
+Test Data : 11 16 99 22 34 78 76 55 67 60 42 79 59 42 3 93 88 7 27 72 10 67 80 78 40 24 97 91
+Test Data : 98 41 38 80 21 33 39 35 81 59 23 88 90 96 55 21 30 80 85 54 32
+Test Data : 95 21 49 88 36 11 4 90 70 100 58 94 51 48 85 84 66 4 32 92 13 30 80 59 39 83 81 32
+Test Data : 17 87 77 21 20 78 96 99 48 89 89 19 74 29 11 98 97 60
+Test Data : 22 43 85 70 55 43 9 1 26 7 2 28 63 87 44 72 99 70 82 1 43 73 41
+Test Data : 83 29 95 73 94 19 49 27 41 62 11 3 25 7 94 34 96 57 26 62 54 72 78
+Test Data : 96 40 83 56 31 75 96 19 76 15 55 38 35 5 86 13 83 58 42 81 5 11 74 76 11 87 93 40
+
+測試通過!
+
+96 40 83 56 31 75 96 19
+76 15 55 38 35 5 86 13
+83 58 42 81 5 11 74 76
+11 87 93 40</code></pre><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="764aa076-eb84-43bb-bf69-7561bab3f36a" class="block-color-teal_background">[問題 5]：期中考後未經修改的 JavaScript 作業問題。</h3><div id="56a12fd8-2731-4671-9b87-9e15023483f8" class="column-list"><div id="70080fde-736e-4d27-baca-7855d2fa34b6" style="width:12.5%" class="column"><figure id="c4d7f7ee-0f08-4141-a38d-b558da746641" class="image"><a href="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang05.png"><img style="width:60px" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang05.png"/></a></figure></div><div id="4898a8d7-3de1-4746-87cc-afb75f9479a4" style="width:87.5%" class="column"><ul id="b888432b-20d7-4a36-ae80-901cdb7493bb" class="bulleted-list"><li style="list-style-type:disc">未經修改的作業問題，主要是考各位平時有沒有做作業，或是至少『抄懂』作業。</li></ul></div></div><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="1310429d-f55e-4a7c-8d31-5ecb02519d92" class="block-color-teal_background">[問題 6]：期中考後未經修改的 JavaScript 作業問題。</h3><div id="29c971b7-1733-4c49-b0cf-60bc41b589eb" class="column-list"><div id="56f96217-84dc-415f-9c94-b2106ef7b883" style="width:12.5%" class="column"><figure id="218588e5-2526-479e-b94e-20969c900fc7" class="image"><a href="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang05.png"><img style="width:60px" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang05.png"/></a></figure></div><div id="e7feba7b-f842-41d3-9357-9fced1159704" style="width:87.5%" class="column"><ul id="e206fdc5-d7af-4163-9e23-0f2b5e8ad23b" class="bulleted-list"><li style="list-style-type:disc">未經修改的作業問題，主要是考各位平時有沒有做作業，或是至少『抄懂』作業。</li></ul></div></div><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="b4bdeb61-9f84-4004-bc91-0ad93d4e65cc" class="block-color-teal_background">[問題 7]：期中考後未經修改的 JavaScript 作業問題。</h3><div id="4d10385c-a274-494a-a1c4-ab4d6d875baa" class="column-list"><div id="6ec77235-cfac-4cb4-878d-a280b80ba3af" style="width:12.5%" class="column"><figure id="3d3b82fc-cbe7-4c61-a68d-98ca1a70b7ea" class="image"><a href="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang05.png"><img style="width:60px" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/yang05.png"/></a></figure></div><div id="5509b1c0-7078-4c44-b787-47773e705c2c" style="width:87.5%" class="column"><ul id="111e1dfb-7ce7-4a7b-85b8-09a707a8e418" class="bulleted-list"><li style="list-style-type:disc">未經修改的作業問題，主要是考各位平時有沒有做作業，或是至少『抄懂』作業。</li></ul></div></div><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="dca5b7ad-f1b8-4f59-9da9-eaea8b331fdc" class="block-color-teal_background">[問題 8]：設計一函數回傳陣列中 N 個隨機數字的『中間值』。</h3><ul id="ecf9d698-a823-48b9-96a7-c51884277e63" class="bulleted-list"><li style="list-style-type:disc">請依照題目說明，在『指定段落』完成欠缺的程式碼。</li></ul><ul id="e07c6801-279e-4211-a3fc-1f7d0efa2886" class="bulleted-list"><li style="list-style-type:disc">設計一函數回傳測試陣列的『中間值』，請參考簡易測試。</li></ul><ul id="4e749414-f558-43c4-a066-e1eb4ada7e6b" class="bulleted-list"><li style="list-style-type:disc">測試用陣列 <code>arr</code> 不會有重複數字且含有奇數個元素。<ul id="12834e01-1da3-465a-9d85-3af550616f39" class="bulleted-list"><li style="list-style-type:circle">換言之，『中間值』在陣列中比他大及比他小的數值一樣多。</li></ul></li></ul><ul id="4868c119-bbe3-43fd-ab17-d947ac676664" class="bulleted-list"><li style="list-style-type:disc">解題建議：<ul id="74b23e79-004d-4faa-9c2b-4f070f1edf6a" class="bulleted-list"><li style="list-style-type:circle">參數 <code>arr</code> 是一個陣列，你可藉由 <code>arr.length</code> 取得陣列長度。</li></ul><ul id="5cdae104-9a48-4604-8a41-384acd1bbe2f" class="bulleted-list"><li style="list-style-type:circle">記得 ~ 使用 <code>Number(...)</code> 將陣列中的資料轉成數字型態。</li></ul></li></ul><h3 id="1a48c3f0-4988-4343-b312-6dc106e5faab" class=""><strong>簡易測試</strong></h3><pre id="b8675c33-bbc8-458c-adce-251b5eafc4ae" class="code code-wrap"><code>prob08&gt; 1..11 | node .\main.js
+6
+
+prob08&gt; 1,6,4,5,3,2,7 | node .\main.js
+4
+
+prob08&gt; 33,22,44,66,77,88,99,11,55 | Get-Random -Count 21  | node .\main.js
+55</code></pre><h3 id="4e34a71c-3013-4e54-9e61-0a8c064a1413" class=""><strong>自動批閱測試</strong></h3><pre id="08aaacb2-e498-4151-b0f3-6ecc3652c605" class="code code-wrap"><code>prob08&gt; .\test.ps1
+
+********************************************
+*         Dynamic Web Programming          *
+*  Exercises / Homework Automatic Grading  *
+********************************************
+
+Test Data : 57 99 88 60 9 45 54 23 25 48 90 61 22
+Test Data : 42 28 34 22 37 39 99 11 35
+Test Data : 13 35 55 25 3 6 90 89 91 54 48 74 80
+Test Data : 60 21 89 23 48 3 94 57 17 30 55 56 10 72 82 4 34
+Test Data : 83 56 41 54 36 35 3 63 33 97 60 1 84
+Test Data : 32 70 55 81 67 44 84 24 34 13 99 93 79 48 11 53 74 22 42 16 27 78 83 2 6 15 68
+Test Data : 47 1 8 27 13 51 40 23 96 97 82 92 38 39 73 34 43 76 65
+Test Data : 13 11 80 22 1 10 71 3 78 94 26 76 28 69 24 18 46 79 58
+Test Data : 28 38 48 74 17 29 12
+Test Data : 77 89 16 90 12 0 79 54 53 29 82 9 42
+
+測試通過!
+
+53</code></pre><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="95eb0808-397d-41c6-8d52-9e69bcd23d1b" class="block-color-teal_background">[問題 9]：設計一函數統計 1 ~ 6 每個數字出現的次數。</h3><ul id="ee981c3d-68df-404f-bfb3-fc1ecc297697" class="bulleted-list"><li style="list-style-type:disc">請依照題目說明，在『指定段落』完成欠缺的程式碼。</li></ul><ul id="b1b24a4a-b3fd-4309-a6dc-0d7b61d96bc1" class="bulleted-list"><li style="list-style-type:disc">設計一函數統計 1 ~ 6 每個數字出現的次數，並以陣列的方式回傳結果。<ul id="67ab1303-9117-4af3-a3d0-dd428a209a2a" class="bulleted-list"><li style="list-style-type:circle">[<code>分析數字總量</code>，<code>1出現次數</code>，<code>2出現次數</code>，<code>3出現次數</code>，<code>4出現次數</code>，<code>5出現次數</code>，<code>6出現次數</code>]</li></ul><ul id="376e9f8b-ea36-492e-9a0e-35024fb030da" class="bulleted-list"><li style="list-style-type:circle">例如， <code>[31, 5, 5, 6, 4, 6, 5]</code></li></ul></li></ul><ul id="ce7ddc5d-6c54-4da4-9677-3a99c43a019f" class="bulleted-list"><li style="list-style-type:disc">不需做錯誤檢查，陣列中所有的資料一定 1 ~ 6 的數字。</li></ul><ul id="cf6fb0b7-c08f-4e81-9c1a-a289ee7021cf" class="bulleted-list"><li style="list-style-type:disc">解題建議：<ul id="55ae8482-ba73-4259-96a7-240613c9bfa0" class="bulleted-list"><li style="list-style-type:circle">參數 <code>arr</code> 是一個陣列，你可藉由 <code>arr.length</code> 取得陣列長度。</li></ul></li></ul><h3 id="54a6cee9-d9be-488c-b9b8-2a4d721245dd" class=""><strong>簡易測試</strong></h3><pre id="31a3a8c7-a84e-4b96-906d-4b88faf8f2b4" class="code code-wrap"><code>prob09&gt; 2,5,6,4,5,3,1,1,3,2,4,6 | node .\main.js
+12 2 2 2 2 2 2
+
+prob09&gt; 2,1,5,2,2,6,4,2,2,6,2,4,4,1,3,3,4,2,2,5,5 |  node .\main.js
+21 2 8 2 4 3 2
+
+prob09&gt; 5,2,4,2,2,1,5,4,4,4,6,4,6,4,5,1,4,3,3,2,6,2,4,3,5,2,2,2,6,4 | node .\main.js
+30 2 8 3 9 4 4</code></pre><h3 id="307f487c-ac81-47b8-8075-8900a720dd0f" class=""><strong>自動批閱測試</strong></h3><pre id="8bf78f84-464e-4bb7-954c-0eafc65f3dac" class="code code-wrap"><code>prob09&gt; .\test.ps1
+
+********************************************
+*         Dynamic Web Programming          *
+*  Exercises / Homework Automatic Grading  *
+********************************************
+
+Test Data : 2 5 2 3 6 3 2 6 6 2 6 2 3 4 3 4 4 2 2 5 3 2 3 4 3 5 6 4 6 5 6 2 2 4 2
+Test Data : 2 3 4 6 3 5 3 4 3 4 1 4 6 3 3 5 4 4 6 6 4 1 5 3
+Test Data : 3 5 2 1 5 2 1 1 2 5 6 5 4 4
+Test Data : 2 5 1 3 6 6 3 6 4 1 6 3 3 6 5 2 3 3
+Test Data : 1 2 6 4 5 1 2 1 3 5 2 5 4 3 3 3
+Test Data : 1 5 6 2 4 3 5 2 2 3 3 5 2 2 4 6 4 2 2 6 6 1 1 2 6 5 3 5 6 5 1 4 6 2 3 1
+Test Data : 3 1 2 6 1 5 6 4 5 1 3 4 2 4 1 1 6 1 4 4
+Test Data : 5 4 4 4 2 1 1 1 1 5
+Test Data : 3 5 6 2 5 6 5 6 6 1 5 5 2 4 5 1 5 6 1 6 1 6 4 5 5 4 6 5 4 1 1 3 4 3 3 5
+Test Data : 2 5 6 3 5 4 4 6 4 3 3 5 2 1 3 1 1 6 2 4 5 2 6 3 4 5 4
+
+測試通過!
+
+27 3 4 5 6 5 4</code></pre><a href="#yang-id-001" class="yang-class-003">回目錄</a>
+<h3 id="e1cfb331-8606-4bd0-aac2-ea0921fe7418" class="block-color-teal_background">[問題 10]：將隨機輸入的 N 筆資料套用HTML表格樣板輸出。</h3><ul id="27658af9-6890-4d2f-b77a-9bfeb8c5b46a" class="bulleted-list"><li style="list-style-type:disc">請依照題目說明，在『指定段落』完成欠缺的程式碼。</li></ul><ul id="48797296-ee59-46f1-8017-1ab3103ae891" class="bulleted-list"><li style="list-style-type:disc">設計一 <code>函數(資料陣列)</code>，將隨機輸入的 N 筆資料套用HTML表格樣板輸出，請參考簡易測試。</li></ul><ul id="c3aa9a75-7102-4178-85a7-a499fc57299a" class="bulleted-list"><li style="list-style-type:disc">為了方便自動檢查輸出結果，請不要加入任何額外的設定，例如字體大小或是CSS樣式設定。</li></ul><ul id="6073defe-5f45-41ac-93e6-9ac0f0a41852" class="bulleted-list"><li style="list-style-type:disc">輸出格式不需要特別縮排，只要是合法的 HTML 都可通過測試。</li></ul><ul id="7daaf4a0-08f5-46e3-a67a-1b997f290232" class="bulleted-list"><li style="list-style-type:disc">資料格式： <code>時間 溫度</code></li></ul><ul id="817713b9-b3f5-4811-8400-148ccd23aec2" class="bulleted-list"><li style="list-style-type:disc">HTML 表格樣板範例：<ul id="73262ff5-5537-4aab-ad78-5cb15c1eb71c" class="bulleted-list"><li style="list-style-type:circle">輸入<code>資料陣列</code>：<code>0 210 5 180</code></li></ul><pre id="3075d41a-4f8c-43fa-a51b-c595fd95ecd9" class="code code-wrap"><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;時間&lt;/th&gt; &lt;th&gt;豆子溫度&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;0&lt;/td&gt; &lt;td&gt;210&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;5&lt;/td&gt; &lt;td&gt;180&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+</code></pre><p id="dfea04f2-48b0-4ead-a722-d4bd6f3d73fe" class=""><code>瀏覽器輸出結果：</code></p><figure id="8b84a028-44b3-44c9-95de-2cca31075576" class="image"><a href="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/Untitled.png"><img style="width:192px" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/Untitled.png"/></a></figure></li></ul><h3 id="7a629543-0e2d-4512-af27-ec2b321aa254" class=""><strong>簡易測試</strong></h3><pre id="468c56a3-8096-4966-93d3-dcc1ec2c808f" class="code code-wrap"><code>prob10&gt; 1,2,3,4 | node .\main.js
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;時間&lt;/th&gt; &lt;th&gt;豆子溫度&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1&lt;/td&gt; &lt;td&gt;2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;3&lt;/td&gt; &lt;td&gt;4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+prob10&gt; 0,220,5,190,10,170,15,140 | node .\main.js
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;時間&lt;/th&gt; &lt;th&gt;豆子溫度&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;0&lt;/td&gt; &lt;td&gt;220&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;5&lt;/td&gt; &lt;td&gt;190&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;10&lt;/td&gt; &lt;td&gt;170&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;15&lt;/td&gt; &lt;td&gt;140&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre><h3 id="923824c9-5bdd-47ab-9ae5-15b9d182ffdc" class=""><strong>自動批閱測試</strong></h3><pre id="4f1926b8-cefc-4df7-9033-25865ea90834" class="code code-wrap"><code>********************************************
+*         Dynamic Web Programming          *
+*  Exercises / Homework Automatic Grading  *
+********************************************
+
+Test Data : 0 51 5 84 10 54 15 99
+Test Data : 0 6 5 54 10 16 15 19 20 2 25 89
+Test Data : 0 55 5 9 10 14 15 89 20 66
+Test Data : 0 49 5 88 10 96 15 71 20 17 25 1 30 31
+Test Data : 0 80 5 85 10 62 15 69 20 100 25 95 30 48
+Test Data : 0 10 5 18 10 55 15 53
+Test Data : 0 1 5 56 10 71 15 10 20 21 25 78
+Test Data : 0 35 5 46 10 88 15 16 20 57 25 65 30 42
+Test Data : 0 40 5 60 10 45 15 43 20 66 25 14 30 69 35 99 40 15
+Test Data : 0 98 5 19 10 58 15 15
+
+測試通過!
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;時間&lt;/th&gt; &lt;th&gt;豆子溫度&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;0&lt;/td&gt; &lt;td&gt;98&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;5&lt;/td&gt; &lt;td&gt;19&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;10&lt;/td&gt; &lt;td&gt;58&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;15&lt;/td&gt; &lt;td&gt;15&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre><p id="12ccd9c8-5ce7-4f72-8100-1781389f73ba" class="">
+</p><figure id="e431e5a6-1172-420d-90f8-e13efb2dfff7" class="image"><a href="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/%E5%9C%96%E7%89%873.png"><img style="width:1322px" src="%E6%9C%9F%E6%9C%AB%E6%B8%AC%E9%A9%97%20(%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81%E8%A8%AD%E8%A8%88)%20-%20%E8%80%83%E9%A1%8C%E8%AA%AA%E6%98%8E%2031e0326c44144f6995c1cbace442586f/%E5%9C%96%E7%89%873.png"/></a></figure><p id="f6daf732-5d9a-417b-a75f-ba2d5bccdf74" class="">
+</p></div></article>
+<script>hljs.highlightAll();</script>
+</body></html>
